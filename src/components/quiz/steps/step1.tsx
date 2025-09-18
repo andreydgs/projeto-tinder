@@ -1,6 +1,8 @@
+
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { useQuiz } from '@/contexts/quiz-provider';
 import { useEffect } from 'react';
@@ -15,6 +17,14 @@ export default function Step1() {
 
   return (
     <div className="text-center p-4 flex flex-col items-center justify-center min-h-[60vh]">
+      <Image
+        src="https://i.imgur.com/ImLy2t6.png"
+        alt="Couple illustration"
+        width={256}
+        height={256}
+        className="mb-8"
+        data-ai-hint="couple illustration"
+      />
       <h1 className="text-3xl md:text-5xl font-bold font-headline mb-4 text-foreground leading-tight">
         Acredite, Deus tem alguém reservado para você.
       </h1>
