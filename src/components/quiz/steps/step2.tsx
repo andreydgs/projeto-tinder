@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useForm } from 'react-hook-form';
@@ -44,7 +45,7 @@ export default function Step2() {
     <Card className="border-none shadow-none">
       <CardHeader className="text-center">
         <CardTitle className="text-2xl font-bold">Conte-nos sobre você</CardTitle>
-        <CardDescription>Para começar, precisamos de algumas informações básicas.</CardDescription>
+        <CardDescription>Preencha seu perfil para ver se existem conexões reais e cristãs perto de você.</CardDescription>
       </CardHeader>
       <CardContent>
         <Form {...form}>
