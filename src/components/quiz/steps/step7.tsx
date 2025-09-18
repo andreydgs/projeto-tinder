@@ -5,7 +5,9 @@ import { useQuiz } from '@/contexts/quiz-provider';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { Skeleton } from '@/components/ui/skeleton';
+import { MapPin } from 'lucide-react';
 
 const locationOptions = [
     'Sim, seria perfeito conhecer alguém por aqui',
@@ -19,6 +21,29 @@ export default function Step7() {
   const { toast } = useToast();
   const { answers, setAnswer } = useQuiz();
   const [selectedLocation, setSelectedLocation] = useState<string | undefined>(answers.location);
+  const [userLocation, setUserLocation] = useState<string | null>(null);
+  const [loadingLocation, setLoadingLocation] = useState(true);
+
+  useEffect(() => {
+    async function fetchLocation() {
+      try {
+        const response = await fetch('http://ip-api.com/json/?fields=city,country');
+        if (!response.ok) {
+          throw new Error('Failed to fetch location');
+        }
+        const data = await response.json();
+        setUserLocation(`${data.city}, ${data.country}`);
+      } catch (error) {
+        console.error("Error fetching user's location:", error);
+        setUserLocation('Não foi possível obter a localização');
+      } finally {
+        setLoadingLocation(false);
+      }
+    }
+
+    fetchLocation();
+  }, []);
+
 
   const handleSelect = (option: string) => {
     setSelectedLocation(option);
@@ -41,7 +66,15 @@ export default function Step7() {
     <Card className="border-none shadow-none">
       <CardHeader className="text-center">
         <CardTitle className="text-2xl font-bold">Está aberto a se conectar com alguém da sua região?</CardTitle>
-        <CardDescription>(COLOCAR A LOCALIZAÇÃO DO USUÁRIO POR IP)</CardDescription>
+        <CardDescription className="flex items-center justify-center gap-2">
+            {loadingLocation ? (
+              <Skeleton className="h-5 w-48" />
+            ) : (
+              <>
+                <MapPin className="h-4 w-4" /> {userLocation}
+              </>
+            )}
+        </CardDescription>
       </CardHeader>
       <CardContent>
           <div className="grid grid-cols-1 gap-4 mb-8">
