@@ -19,11 +19,11 @@ export default function Step8() {
   useEffect(() => {
     const stepInterval = setInterval(() => {
       setCurrentStep(prev => prev + 1);
-    }, 1000); // 1 second per step
+    }, 1800); // 1.8 seconds per step to make it total 9s for 5 steps
 
     const redirectTimeout = setTimeout(() => {
       router.push('/quiz/9');
-    }, 5000); // 5 seconds total
+    }, 9000); // 9 seconds total
 
     return () => {
       clearInterval(stepInterval);
