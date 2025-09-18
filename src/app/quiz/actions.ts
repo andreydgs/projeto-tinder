@@ -15,6 +15,9 @@ export async function getAiQuestion(answers: QuizAnswers) {
         if (key === 'purpose') {
           return `Propósito no relacionamento: ${value}`;
         }
+         if (key === 'values') {
+          return `Valores essenciais: ${value}`;
+        }
         return `${key}: ${value}`
       })
       .join(', ');

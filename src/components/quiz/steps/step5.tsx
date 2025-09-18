@@ -59,7 +59,7 @@ export default function Step5() {
 
         <div className="flex justify-center pt-4">
           <Button onClick={handleSubmit} size="lg" className="btn-gradient px-12 py-8 rounded-full shadow-lg text-lg">
-            Próxima
+            Continuar
           </Button>
         </div>
       </CardContent>
