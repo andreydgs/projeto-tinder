@@ -27,12 +27,12 @@ export default function Step7() {
   useEffect(() => {
     async function fetchLocation() {
       try {
-        const response = await fetch('http://ip-api.com/json/?fields=city,country');
+        const response = await fetch('https://ipapi.co/json/');
         if (!response.ok) {
           throw new Error('Failed to fetch location');
         }
         const data = await response.json();
-        setUserLocation(`${data.city}, ${data.country}`);
+        setUserLocation(`${data.city}, ${data.country_name}`);
       } catch (error) {
         console.error("Error fetching user's location:", error);
         setUserLocation('Não foi possível obter a localização');
