@@ -11,10 +11,10 @@ import { useToast } from '@/hooks/use-toast';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 
 const preferenceOptions = [
-  'Companheirismo e amizade',
-  'Fé e valores compartilhados',
-  'Senso de humor e alegria',
-  'Ambição e crescimento mútuo',
+    'Fé em Deus acima de tudo',
+    'Honestidade e transparência',
+    'Respeito e companheirismo',
+    'Propósito e crescimento mútuo',
 ];
 
 export default function Step4() {
