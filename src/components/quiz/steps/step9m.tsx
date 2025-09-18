@@ -3,21 +3,15 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Heart, MapPin } from 'lucide-react';
+import { Heart, MapPin, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { maleProfiles, type MaleProfile } from '@/lib/male-profiles';
 import { cn } from '@/lib/utils';
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel"
+import { ScrollArea } from '@/components/ui/scroll-area';
 
 
-const ProfileCard = ({ profile }: { profile: MaleProfile }) => {
+const ProfileCard = ({ profile, isLocked }: { profile: MaleProfile, isLocked?: boolean }) => {
     const [isFavorited, setIsFavorited] = useState(false);
   
     const handleFavorite = () => {
@@ -25,35 +19,39 @@ const ProfileCard = ({ profile }: { profile: MaleProfile }) => {
     };
 
   return (
-    <Card className="overflow-hidden rounded-xl shadow-lg w-full max-w-sm mx-auto">
-        <div className="relative">
-            <Image
-                src={profile.imageUrl}
-                alt={`Foto de ${profile.name}`}
-                width={400}
-                height={400}
-                className="w-full h-80 object-cover"
-                data-ai-hint={profile.imageHint}
-            />
-            <div 
-                onClick={handleFavorite}
-                className="absolute top-4 right-4 bg-white/80 backdrop-blur-sm rounded-full p-2 cursor-pointer transition-transform hover:scale-110"
-            >
-                <Heart className={cn("w-6 h-6 text-primary", isFavorited && "fill-current text-primary")} />
+    <Card className="bg-white/10 backdrop-blur-sm border-none rounded-2xl text-white p-4">
+      <div className="flex items-center gap-4">
+          <div className="relative w-16 h-16 shrink-0">
+             {isLocked ? (
+                <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center">
+                    <User className="w-8 h-8 text-white/50" />
+                </div>
+             ) : (
+                <Image
+                    src={profile.imageUrl}
+                    alt={`Foto de ${profile.name}`}
+                    width={64}
+                    height={64}
+                    className="rounded-full object-cover w-16 h-16"
+                    data-ai-hint={profile.imageHint}
+                />
+             )}
+          </div>
+        <div className="flex-grow">
+          <div className="flex justify-between items-start">
+            <div>
+                <h3 className="text-lg font-bold">{profile.name}, {profile.age}</h3>
+                <p className="text-sm text-white/80 mt-1">
+                {profile.description}
+                </p>
             </div>
-        </div>
-      <CardContent className="p-4 bg-white">
-        <div className="flex justify-between items-center mb-2">
-          <h3 className="text-xl font-bold text-foreground">{profile.name}, {profile.age}</h3>
-          <div className="flex items-center gap-1 text-sm text-muted-foreground">
-            <MapPin className="h-4 w-4" />
-            <span>{profile.distance} km</span>
+            <div className="flex items-center gap-1 text-xs bg-black/20 text-white rounded-full px-2 py-1 shrink-0 ml-2">
+                <MapPin className="h-3 w-3" />
+                <span>{profile.distance} km</span>
+            </div>
           </div>
         </div>
-        <p className="text-sm text-muted-foreground">
-          {profile.description}
-        </p>
-      </CardContent>
+      </div>
     </Card>
   );
 };
@@ -61,32 +59,42 @@ const ProfileCard = ({ profile }: { profile: MaleProfile }) => {
 
 export default function Step9m() {
   return (
-    <div className="text-center p-4 flex flex-col items-center">
-        <h1 className="text-3xl md:text-4xl font-bold mb-2 text-primary">
-            Pessoas especiais próximas a você
-        </h1>
-        <p className="text-base text-muted-foreground mb-8 max-w-lg">
-            Encontramos perfis que combinam com seus valores e fé.
-        </p>
-        
-        <Carousel className="w-full max-w-sm md:max-w-xl lg:max-w-2xl mb-8" opts={{ loop: true }}>
-            <CarouselContent>
-                {maleProfiles.map((profile, index) => (
-                    <CarouselItem key={index}>
-                        <ProfileCard profile={profile} />
-                    </CarouselItem>
-                ))}
-            </CarouselContent>
-            <CarouselPrevious className="hidden sm:flex" />
-            <CarouselNext className="hidden sm:flex" />
-        </Carousel>
-
-        <div className="text-center">
-            <p className="text-lg font-semibold text-muted-foreground mb-4">+44 pessoas com seus valores estão esperando por você.</p>
-            <Button asChild size="lg" className="btn-gradient px-10 py-6 rounded-full shadow-lg text-base">
-                <Link href="#">Ver Todas as Conexões</Link>
-            </Button>
-        </div>
+    <div className="min-h-screen w-full bg-cover bg-center bg-no-repeat flex items-center justify-center p-4" style={{backgroundImage: "url('https://images.unsplash.com/photo-1505015390626-60729354b67b?q=80&w=2070&auto=format&fit=crop')"}}>
+        <div className="absolute inset-0 bg-black/30 backdrop-blur-sm"></div>
+        <Card className="relative z-10 w-full max-w-md bg-black/40 backdrop-blur-lg border-white/20 rounded-3xl text-white shadow-2xl overflow-hidden">
+            <CardContent className="p-6">
+                <div className="text-center mb-6">
+                    <Heart className="w-10 h-10 text-primary mx-auto mb-2" fill="hsl(var(--primary))" />
+                    <h1 className="text-2xl md:text-3xl font-bold">
+                        Pessoas especiais em Porto Alegre
+                    </h1>
+                    <p className="text-base text-white/80 mt-1">
+                        Encontramos perfis que combinam com seus valores e fé.
+                    </p>
+                </div>
+                
+                <ScrollArea className="h-80 w-full pr-3">
+                    <div className="space-y-3">
+                        {maleProfiles.slice(0, 3).map((profile, index) => (
+                            <ProfileCard key={index} profile={profile} isLocked={index > 0} />
+                        ))}
+                    </div>
+                </ScrollArea>
+                
+                <div className="text-center mt-6">
+                    <div className="bg-white/10 rounded-xl p-3 text-sm mb-4">
+                        <p>+78 pessoas com seus valores estão esperando por você em Porto Alegre</p>
+                    </div>
+                    <Button asChild size="lg" className="w-full btn-gradient px-10 py-7 rounded-full shadow-lg text-lg">
+                        <Link href="#">
+                            Ver Todas as Conexões
+                            <Heart className="w-5 h-5 ml-2" />
+                        </Link>
+                    </Button>
+                    <p className="text-xs text-white/60 mt-3">Seus valores e fé atraíram pessoas incríveis da sua região</p>
+                </div>
+            </CardContent>
+        </Card>
     </div>
   );
 }

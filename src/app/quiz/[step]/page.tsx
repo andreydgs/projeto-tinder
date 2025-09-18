@@ -67,6 +67,11 @@ export default function QuizPage({ params }: QuizPageProps) {
         redirect('/quiz/1');
     }
   };
+  
+  if (step === '9m') {
+    return <Step9m />;
+  }
+
 
   return (
     <div className="container mx-auto py-8 sm:py-12 md:py-16">

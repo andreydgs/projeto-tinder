@@ -4,8 +4,20 @@ import { Logo } from '@/components/logo';
 import { QuizProgressBar } from '@/components/quiz/progress-bar';
 import { QuizProvider } from '@/contexts/quiz-provider';
 import type { ReactNode } from 'react';
+import { usePathname } from 'next/navigation';
 
 export default function QuizLayout({ children }: { children: ReactNode }) {
+  const pathname = usePathname();
+  const isMatchPage = pathname === '/quiz/9m';
+
+  if (isMatchPage) {
+    return (
+       <QuizProvider>
+         {children}
+       </QuizProvider>
+    );
+  }
+
   return (
     <QuizProvider>
       <div className="flex flex-col min-h-screen bg-background">
