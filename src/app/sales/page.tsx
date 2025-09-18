@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { CheckCircle, Heart, Lock, MessageCircle, User, Users, ShieldCheck, BadgeCheck, Accessibility, AlarmClock, Siren, Hourglass, Crown, Star } from 'lucide-react';
+import { CheckCircle, Heart, Lock, MessageCircle, User, Users, ShieldCheck, BadgeCheck, Accessibility, AlarmClock, Hourglass, Crown, Star } from 'lucide-react';
 import { Logo } from '@/components/logo';
 
 const CountdownTimer = () => {
@@ -66,7 +66,6 @@ export default function SalesPage() {
         <section className="bg-destructive text-destructive-foreground text-center py-2">
           <div className="container mx-auto px-4">
               <div className="flex items-center justify-center gap-2 text-sm font-bold">
-                  <Siren className="h-5 w-5 text-yellow-300" />
                   <p>OFERTA EXCLUSIVA</p>
               </div>
               <p className="text-xs font-medium flex items-center justify-center gap-1">
@@ -85,6 +84,16 @@ export default function SalesPage() {
             <p className="text-base md:text-lg text-muted-foreground">
               🙏 Você está a um passo de viver o amor que Deus preparou para você.
             </p>
+              <div className="w-full max-w-sm mx-auto my-4 rounded-xl overflow-hidden shadow-lg">
+                <video 
+                    src="https://app.litevideo.net/embed/9e71b1eb-1df5-40a3-848e-b56dc655bf67/video.mp4" 
+                    className="w-full h-full"
+                    autoPlay 
+                    loop 
+                    muted 
+                    playsInline
+                />
+              </div>
           </section>
 
           {/* Good News */}
@@ -299,5 +308,3 @@ export default function SalesPage() {
     </div>
   );
 }
-
-    
