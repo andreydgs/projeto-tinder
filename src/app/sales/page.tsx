@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { CheckCircle, Heart, Lock, MessageCircle, Seniors, User, Users, ShieldCheck, BadgeCheck } from 'lucide-react';
+import { CheckCircle, Heart, Lock, MessageCircle, User, Users, ShieldCheck, BadgeCheck, Accessibility } from 'lucide-react';
 import { Logo } from '@/components/logo';
 
 const CountdownTimer = () => {
@@ -117,7 +117,7 @@ export default function SalesPage() {
               </Card>
               <Card className="text-center">
                 <CardHeader>
-                  <Seniors className="mx-auto h-10 w-10 text-green-400" />
+                  <Accessibility className="mx-auto h-10 w-10 text-green-400" />
                   <CardTitle>Chat Sêniores</CardTitle>
                   <CardDescription>(60+)</CardDescription>
                 </CardHeader>
@@ -258,7 +258,7 @@ export default function SalesPage() {
             <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-4">
               <li className="flex items-start gap-3"><Heart className="h-5 w-5 text-primary mt-1 shrink-0" /> Você busca um relacionamento com propósito e fundamentado na fé</li>
               <li className="flex items-start gap-3"><Heart className="h-5 w-5 text-primary mt-1 shrink-0" /> Está cansado(a) de apps rasos que não levam a nada sério</li>
-              <li className="flex items-start gap-3"><Heart className="h-5 w-5 text-primary mt-1 shrink-0" /> Quer conhecer alguém que compartilhe os mesmos valores cristãos</li>
+              <li className="flex items-start gap-3"><Heart className="h-5 w-5 text-primary mt-1- shrink-0" /> Quer conhecer alguém que compartilhe os mesmos valores cristãos</li>
               <li className="flex items-start gap-3"><Heart className="h-5 w-5 text-primary mt-1 shrink-0" /> Acredita que Deus tem alguém especial preparado para você</li>
               <li className="flex items-start gap-3"><Heart className="h-5 w-5 text-primary mt-1 shrink-0" /> Deseja fazer parte de uma comunidade séria e comprometida</li>
             </ul>
