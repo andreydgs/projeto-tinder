@@ -22,7 +22,7 @@ export const maleProfiles: MaleProfile[] = [
     age: 28,
     distance: 2.3,
     description: 'Engenheiro e diácono. Busco uma mulher que ame a Deus acima de tudo e queira construir uma família cristã.',
-    imageUrl: 'https://picsum.photos/seed/mp2/200/200',
+    imageUrl: 'https://i.imgur.com/FcUW0qR.jpeg',
     imageHint: 'man smiling',
   },
   {
@@ -30,7 +30,7 @@ export const maleProfiles: MaleProfile[] = [
     age: 32,
     distance: 3.5,
     description: 'Empresário cristão. Creio que Deus preparou alguém especial para mim e busco relacionamento com propósito.',
-    imageUrl: 'https://picsum.photos/seed/mp3/200/200',
+    imageUrl: 'https://i.imgur.com/PbZoBM1.jpeg',
     imageHint: 'man outside',
   },
   {
@@ -38,7 +38,7 @@ export const maleProfiles: MaleProfile[] = [
     age: 26,
     distance: 1.2,
     description: 'Músico da igreja e professor. Sonho em formar uma família abençoada baseada nos valores cristãos.',
-    imageUrl: 'https://picsum.photos/seed/mp4/200/200',
+    imageUrl: 'https://i.imgur.com/B2JIUFq.jpeg',
     imageHint: 'man playing guitar',
   },
   {
@@ -46,7 +46,7 @@ export const maleProfiles: MaleProfile[] = [
     age: 29,
     distance: 4.2,
     description: 'Médico dedicado. Quero encontrar minha companheira de vida e fé para servirmos juntos ao Senhor.',
-    imageUrl: 'https://picsum.photos/seed/mp5/200/200',
+    imageUrl: 'https://i.imgur.com/LM1fzrM.jpeg',
     imageHint: 'man in scrubs',
   },
   {
@@ -54,7 +54,7 @@ export const maleProfiles: MaleProfile[] = [
     age: 31,
     distance: 2.7,
     description: 'Advogado e líder jovem. Busco uma mulher temente a Deus para construirmos juntos o que Ele preparou.',
-    imageUrl: 'https://picsum.photos/seed/mp6/200/200',
+    imageUrl: 'https://i.imgur.com/ej5w0hd.jpeg',
     imageHint: 'man in suit',
   },
     {
@@ -62,7 +62,7 @@ export const maleProfiles: MaleProfile[] = [
     age: 27,
     distance: 3.8,
     description: 'Contador e ministro de louvor. Acredito que Deus tem uma pessoa especial preparada para cada um de nós.',
-    imageUrl: 'https://picsum.photos/seed/mp7/200/200',
+    imageUrl: 'https://i.imgur.com/DDLNBtA.jpeg',
     imageHint: 'man singing',
   },
   {
@@ -70,7 +70,7 @@ export const maleProfiles: MaleProfile[] = [
     age: 34,
     distance: 1.9,
     description: 'Professor universitário e pregador. Busco uma companheira que compartilhe do amor por Jesus e pela família.',
-    imageUrl: 'https://picsum.photos/seed/mp8/200/200',
+    imageUrl: 'https://i.imgur.com/H27Kbc9.jpeg',
     imageHint: 'man with books',
   },
   {
@@ -78,7 +78,7 @@ export const maleProfiles: MaleProfile[] = [
     age: 29,
     distance: 2.4,
     description: 'Arquiteto e líder de célula. Quero construir não só prédios, mas também um lar cristão ao lado de uma mulher especial.',
-    imageUrl: 'https://picsum.photos/seed/mp9/200/200',
+    imageUrl: 'https://i.imgur.com/HPs3Xhv.jpeg',
     imageHint: 'man with blueprints',
   },
   {
@@ -86,7 +86,7 @@ export const maleProfiles: MaleProfile[] = [
     age: 33,
     distance: 3.1,
     description: 'Dentista e missionário nas horas vagas. Busco uma companheira para servir juntos no Reino de Deus.',
-    imageUrl: 'https://picsum.photos/seed/mp10/200/200',
+    imageUrl: 'https://i.imgur.com/03yYaAh.jpeg',
     imageHint: 'man smiling portrait',
   },
   {
@@ -94,7 +94,7 @@ export const maleProfiles: MaleProfile[] = [
     age: 37,
     distance: 2.0,
     description: 'Administrador e diácono. Acredito que o amor começa com propósito em Deus.',
-    imageUrl: 'https://picsum.photos/seed/mp11/200/200',
+    imageUrl: 'https://i.imgur.com/0MllOil.jpeg',
     imageHint: 'man in office',
   },
   {
