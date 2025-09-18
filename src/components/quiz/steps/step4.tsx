@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -27,6 +28,9 @@ export default function Step4() {
   useEffect(() => {
     async function fetchQuestion() {
       setLoading(true);
+      // Even though we are not displaying the AI question anymore, 
+      // we can keep this logic in case we want to use it later,
+      // for example, to populate the options dynamically.
       const result = await getAiQuestion(answers);
       setGeneratedQuestion(result.question);
       setLoading(false);
@@ -57,7 +61,9 @@ export default function Step4() {
           {loading ? (
              <Skeleton className="h-8 w-3/4 mx-auto" />
           ) : (
-             <CardTitle className="text-2xl font-bold">{generatedQuestion}</CardTitle>
+             <CardTitle className="text-2xl font-bold">
+                Perfeito, {answers.name}! Agora nos conte o que você mais valoriza em um relacionamento
+             </CardTitle>
           )}
         <CardDescription>Sua resposta nos ajuda a encontrar o par perfeito para você.</CardDescription>
       </CardHeader>
