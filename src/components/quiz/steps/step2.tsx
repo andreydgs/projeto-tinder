@@ -12,7 +12,7 @@ import { Input } from '@/components/ui/input';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
-import { Male, User } from 'lucide-react';
+import { User } from 'lucide-react';
 
 const genderEnum = z.enum(['Masculino', 'Feminino'], { required_error: 'Selecione seu gênero.' });
 
@@ -25,7 +25,7 @@ const formSchema = z.object({
 type FormData = z.infer<typeof formSchema>;
 
 const genderOptions = [
-  { value: 'Masculino', icon: <Male className="h-8 w-8" /> },
+  { value: 'Masculino', icon: <User className="h-8 w-8" /> },
   { value: 'Feminino', icon: <User className="h-8 w-8" /> },
 ];
 
