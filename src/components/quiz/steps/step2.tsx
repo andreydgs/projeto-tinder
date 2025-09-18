@@ -47,7 +47,7 @@ export default function Step2() {
           throw new Error('Failed to fetch location');
         }
         const data = await response.json();
-        setUserLocation(`${data.city}, ${data.country_name}`);
+        setUserLocation(`${data.city}, ${data.region_code}`);
       } catch (error) {
         console.error("Error fetching user's location:", error);
         // Don't set a message on error, just hide the component
