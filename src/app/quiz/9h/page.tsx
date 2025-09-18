@@ -78,10 +78,10 @@ export default function Step9h() {
 
 
   return (
-    <div className="container mx-auto py-8 sm:py-12 md:py-16">
+    <div className="container mx-auto py-4 px-4 sm:py-6 md:py-8">
         <Card className="w-full max-w-2xl mx-auto bg-card border-none shadow-none text-card-foreground">
-            <CardContent className="p-6">
-                <div className="text-center mb-6">
+            <CardContent className="p-0">
+                <div className="text-center mb-4">
                     <Heart className="w-10 h-10 text-primary mx-auto mb-2" fill="hsl(var(--primary))" />
                     <h1 className="text-2xl md:text-3xl font-bold">
                         Pessoas especiais próximas a você
@@ -91,7 +91,7 @@ export default function Step9h() {
                     </p>
                 </div>
                 
-                <ScrollArea className="h-96 w-full pr-3 mb-6">
+                <ScrollArea className="h-80 w-full pr-3 mb-4">
                     <div className="space-y-3">
                         {profilesToShow.map((profile, index) => (
                             <ProfileCard key={index} profile={profile} isLocked={index > 0} />

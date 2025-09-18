@@ -92,7 +92,7 @@ export default function QuizPage({ params }: QuizPageProps) {
 
 
   return (
-    <div className="container mx-auto py-8 sm:py-12 md:py-16">
+    <div className="container mx-auto py-4 px-4 sm:py-6 md:py-8">
       <div className="flex justify-center">
         <div className="w-full max-w-2xl">
           {renderStep()}

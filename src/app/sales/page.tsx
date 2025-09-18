@@ -54,22 +54,22 @@ export default function SalesPage() {
 
   return (
     <div className="bg-background text-foreground">
-        <header className="p-4 sm:p-6 border-b sticky top-0 bg-background/80 backdrop-blur-sm z-20">
-          <div className="container mx-auto flex flex-col gap-4">
+        <header className="p-4 border-b sticky top-0 bg-background/80 backdrop-blur-sm z-20">
+          <div className="container mx-auto flex flex-col gap-2">
             <div className="flex justify-center">
               <Logo />
             </div>
           </div>
         </header>
 
-      <main className="container mx-auto px-4 py-6 md:py-10">
+      <main className="container mx-auto px-4 py-4 sm:py-6 md:py-8">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
-          <section className="text-center mb-8">
-            <div className="inline-block bg-destructive/10 text-destructive font-semibold rounded-full px-3 py-1 text-sm mb-3">
+          <section className="text-center mb-6">
+            <div className="inline-block bg-destructive/10 text-destructive font-semibold rounded-full px-3 py-1 text-sm mb-2">
               🚨 Oferta Exclusiva
             </div>
-            <p className="text-base font-medium mb-3">
+            <p className="text-base font-medium mb-2">
               ⏳ Tempo restante: <CountdownTimer />
             </p>
             <h1 className="text-2xl md:text-4xl font-bold mb-2">
@@ -81,14 +81,14 @@ export default function SalesPage() {
           </section>
 
           {/* Good News */}
-          <div className="bg-green-100 text-green-800 rounded-lg p-3 text-center font-semibold text-base mb-8">
+          <div className="bg-green-100 text-green-800 rounded-lg p-3 text-center font-semibold text-base mb-6">
             💡 Boa notícia: 37 pessoas com seus valores estão online em {userLocation}.
           </div>
 
           {/* Community Section */}
-          <section className="text-center mb-10">
+          <section className="text-center mb-8">
             <h2 className="text-xl md:text-3xl font-bold mb-2">Nossa Comunidade</h2>
-            <p className="text-muted-foreground text-sm mb-6">
+            <p className="text-muted-foreground text-sm mb-4">
               Um espaço acolhedor, organizado e seguro para conexões com base na fé.
             </p>
             <div className="grid md:grid-cols-3 gap-4">
@@ -117,8 +117,8 @@ export default function SalesPage() {
           </section>
 
           {/* Intentional Interactions */}
-          <section className="mb-10">
-             <div className="text-center mb-6">
+          <section className="mb-8">
+             <div className="text-center mb-4">
                 <h2 className="text-xl md:text-3xl font-bold mb-2">💖 Interações com Intenção</h2>
                 <p className="text-muted-foreground text-sm">Sinalize sua intenção com um coração para manter as conexões respeitosas.</p>
              </div>
@@ -131,7 +131,7 @@ export default function SalesPage() {
           </section>
 
           {/* Our Commitment & Testimonial */}
-           <section className="grid md:grid-cols-2 gap-8 items-center mb-10">
+           <section className="grid md:grid-cols-2 gap-6 items-center mb-8">
               <div>
                 <h2 className="text-xl md:text-3xl font-bold mb-3">Nosso Compromisso</h2>
                 <p className="text-muted-foreground mb-4 text-sm">Criar um ambiente cristão seguro onde conexões são construídas com autenticidade, fé e propósito.</p>
@@ -154,7 +154,7 @@ export default function SalesPage() {
               </div>
           </section>
           
-          <div className="flex justify-around text-center mb-10">
+          <div className="flex justify-around text-center mb-8">
             <div>
               <p className="text-2xl font-bold text-primary">+12.8K</p>
               <p className="text-muted-foreground text-xs">membros ativos</p>
@@ -167,7 +167,7 @@ export default function SalesPage() {
 
 
           {/* Pricing Section */}
-          <section className="mb-10">
+          <section className="mb-8">
             <div className="grid md:grid-cols-3 gap-4 items-start">
               {/* Monthly Plan */}
               <Card>
@@ -236,7 +236,7 @@ export default function SalesPage() {
           </section>
           
            {/* Who is this for Section */}
-          <section className="bg-secondary rounded-lg p-6 mb-10">
+          <section className="bg-secondary rounded-lg p-6 mb-8">
             <h2 className="text-lg font-bold text-center mb-4">💝 Essa comunidade é para você se...</h2>
             <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-3 text-sm">
               <li className="flex items-start gap-2"><Heart className="h-4 w-4 text-primary mt-0.5 shrink-0" /> Busca um relacionamento com propósito</li>
@@ -247,7 +247,7 @@ export default function SalesPage() {
           </section>
 
           {/* Final CTA */}
-          <section className="text-center mb-10">
+          <section className="text-center mb-8">
             <h2 className="text-xl font-bold mb-2">💖 Sua nova história pode começar agora</h2>
             <p className="bg-green-100 text-green-800 rounded-full px-3 py-1 mb-4 inline-block text-sm">✅ 65 pessoas online agora</p>
             <p className="text-muted-foreground mb-6 max-w-2xl mx-auto text-sm">Milhares de pessoas como você já transformaram suas vidas. Não deixe a felicidade passar!</p>
@@ -255,7 +255,7 @@ export default function SalesPage() {
           </section>
 
           {/* FAQ */}
-          <section className="max-w-2xl mx-auto mb-10">
+          <section className="max-w-2xl mx-auto mb-8">
              <Accordion type="single" collapsible className="w-full">
                 <AccordionItem value="item-1">
                     <AccordionTrigger className="text-sm">COMO VOU RECEBER O ACESSO?</AccordionTrigger>
