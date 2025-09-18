@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState } from 'react';
@@ -37,10 +38,10 @@ export default function Step3() {
   };
 
   const handleSubmit = () => {
-     if (selectedInterests.length < 3) {
+     if (selectedInterests.length < 1) {
       toast({
         title: "Seleção necessária",
-        description: "Por favor, escolha pelo menos 3 interesses.",
+        description: "Por favor, escolha pelo menos 1 interesse.",
         variant: "destructive"
       })
       return;
@@ -53,7 +54,7 @@ export default function Step3() {
     <Card className="border-none shadow-none">
       <CardHeader className="text-center px-0">
         <CardTitle className="text-xl font-bold">Quais são seus interesses?</CardTitle>
-        <CardDescription>Selecione o que você gosta de fazer. Escolha no mínimo 3.</CardDescription>
+        <CardDescription>Selecione o que você gosta de fazer. Escolha pelo menos 1.</CardDescription>
       </CardHeader>
       <CardContent className="p-0">
         <div className="grid grid-cols-3 gap-2 mb-4">
