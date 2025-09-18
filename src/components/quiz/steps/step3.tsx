@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useQuiz } from '@/contexts/quiz-provider';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Coffee, UtensilsCrossed, Music, BookOpen, Camera, Gamepad2, Dumbbell, Plane } from 'lucide-react';
+import { Coffee, UtensilsCrossed, Music, BookOpen, Camera, Gamepad2, Dumbbell, Plane, Palette } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 const interests = [
@@ -18,6 +18,7 @@ const interests = [
     { name: 'Jogos', icon: <Gamepad2 className="h-8 w-8" /> },
     { name: 'Exercícios', icon: <Dumbbell className="h-8 w-8" /> },
     { name: 'Viagens', icon: <Plane className="h-8 w-8" /> },
+    { name: 'Arte', icon: <Palette className="h-8 w-8" /> },
 ];
 
 export default function Step3() {
