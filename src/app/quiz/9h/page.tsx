@@ -55,12 +55,17 @@ export default function Step9h() {
   const { answers } = useQuiz();
 
   const getSortedProfiles = () => {
-    // Sort all profiles by age in ascending order
-    const sortedProfiles = [...femaleProfiles].sort((a, b) => a.age - b.age);
+    const firstProfile = femaleProfiles.find(p => p.name === 'Thais silva');
+    const otherProfiles = femaleProfiles.filter(p => p.name !== 'Thais silva');
+
+    if (!firstProfile) {
+        // Fallback in case Thais silva is not found
+        return [...femaleProfiles].sort((a, b) => a.age - b.age);
+    }
     
-    // The first profile in the sorted list will be the one that is not blurred.
-    // The rest of the logic can then proceed based on this sorted list.
-    return sortedProfiles;
+    otherProfiles.sort((a, b) => a.age - b.age);
+    
+    return [firstProfile, ...otherProfiles];
   }
 
   const profilesToShow = getSortedProfiles();

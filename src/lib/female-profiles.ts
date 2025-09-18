@@ -11,7 +11,7 @@ export type FemaleProfile = {
 export const femaleProfiles: FemaleProfile[] = [
   {
     name: 'Thais silva',
-    age: 26,
+    age: 19,
     distance: 9,
     description: 'Amo servir na igreja e cozinhar. Busco alguém que compartilhe minha fé e sonhe em construir uma família abençoada.',
     imageUrl: 'https://i.pinimg.com/736x/bd/e4/29/bde4292c78705160f5a14f14e63d2a16.jpg',
