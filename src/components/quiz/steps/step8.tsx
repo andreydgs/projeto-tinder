@@ -3,76 +3,64 @@
 import { useQuiz } from '@/contexts/quiz-provider';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { CheckCircle, Edit } from 'lucide-react';
+import { CheckCircle, Edit, ChevronDown, User, Heart, Briefcase, Clock, MapPin } from 'lucide-react';
 import Link from 'next/link';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
+
+const SummaryItem = ({ label, value, href }: { label: string; value?: string | string[] | number; href: string }) => {
+  const displayValue = Array.isArray(value) ? value.join(', ') : value;
+  return (
+    <div className="flex justify-between items-center py-3 border-b last:border-none">
+      <span className="text-sm text-muted-foreground">{label}</span>
+      <div className="flex items-center gap-4">
+        <span className="text-sm font-medium text-right">{displayValue || 'Não informado'}</span>
+        <Button variant="ghost" size="icon" asChild className="h-8 w-8">
+            <Link href={href} aria-label={`Editar ${label}`}>
+                <Edit className="h-4 w-4 text-muted-foreground" />
+            </Link>
+        </Button>
+      </div>
+    </div>
+  );
+};
+
 
 export default function Step8() {
   const { answers } = useQuiz();
 
   return (
     <div className="text-center p-4 flex flex-col items-center">
-        <CheckCircle className="h-16 w-16 text-green-500 mb-4" />
-        <h1 className="text-3xl md:text-4xl font-bold font-headline mb-4 text-foreground">
+        <CheckCircle className="h-12 w-12 text-green-500 mb-3" />
+        <h1 className="text-2xl md:text-3xl font-bold mb-2 text-foreground">
             Tudo pronto!
         </h1>
-        <p className="text-lg text-muted-foreground mb-8">
+        <p className="text-base text-muted-foreground mb-6">
             Seu perfil está completo. Confira suas respostas abaixo.
         </p>
 
-        <Card className="text-left mb-8 w-full max-w-md mx-auto shadow-lg">
-            <CardHeader className="flex flex-row items-center justify-between">
-                <div>
-                    <CardTitle>Resumo do seu Perfil</CardTitle>
-                    <CardDescription>Este é o perfil que usaremos para encontrar seu par divino.</CardDescription>
-                </div>
-                <Button variant="ghost" size="icon" asChild>
-                    <Link href="/quiz/2" aria-label="Editar perfil">
-                        <Edit className="h-4 w-4" />
-                    </Link>
-                </Button>
-            </CardHeader>
-            <CardContent className="space-y-4 text-sm">
-                <div className="flex justify-between items-center border-b pb-2">
-                    <span className="font-semibold text-muted-foreground">Nome:</span>
-                    <span className="font-medium">{answers.name || 'Não informado'}</span>
-                </div>
-                <div className="flex justify-between items-center border-b pb-2">
-                    <span className="font-semibold text-muted-foreground">Idade:</span>
-                    <span className="font-medium">{answers.age || 'Não informado'}</span>
-                </div>
-                <div className="flex justify-between items-center border-b pb-2">
-                    <span className="font-semibold text-muted-foreground">Gênero:</span>
-                    <span className="font-medium">{answers.gender || 'Não informado'}</span>
-                </div>
-                 <div className="flex justify-between items-center border-b pb-2">
-                    <span className="font-semibold text-muted-foreground">Interesses:</span>
-                    <span className="font-medium text-right">{(answers.interests || []).join(', ')}</span>
-                </div>
-                <div className="flex justify-between items-center border-b pb-2">
-                    <span className="font-semibold text-muted-foreground">Prioridade:</span>
-                    <span className="font-medium text-right">{answers.preference || 'Não informado'}</span>
-                </div>
-                 <div className="flex justify-between items-center border-b pb-2">
-                    <span className="font-semibold text-muted-foreground">Propósito:</span>
-                    <span className="font-medium text-right">{answers.purpose || 'Não informado'}</span>
-                </div>
-                <div className="flex justify-between items-center border-b pb-2">
-                    <span className="font-semibold text-muted-foreground">Valores:</span>
-                    <span className="font-medium text-right">{answers.values || 'Não informado'}</span>
-                </div>
-                <div className="flex justify-between items-center border-b pb-2">
-                    <span className="font-semibold text-muted-foreground">Tempo de Deus:</span>
-                    <span className="font-medium text-right">{answers.timing || 'Não informado'}</span>
-                </div>
-                <div className="flex justify-between items-center">
-                    <span className="font-semibold text-muted-foreground">Localização:</span>
-                    <span className="font-medium text-right">{answers.location || 'Não informado'}</span>
-                </div>
-            </CardContent>
-        </Card>
+        <Accordion type="single" collapsible className="w-full max-w-md mx-auto mb-8" defaultValue="item-1">
+            <AccordionItem value="item-1">
+                <AccordionTrigger className="font-semibold">Resumo do seu Perfil</AccordionTrigger>
+                <AccordionContent>
+                    <div className="space-y-1 text-left">
+                        <SummaryItem label="Perfil" value={`${answers.name || ''}, ${answers.age || ''}`} href="/quiz/2" />
+                        <SummaryItem label="Interesses" value={answers.interests} href="/quiz/3" />
+                        <SummaryItem label="Prioridade" value={answers.preference} href="/quiz/4" />
+                        <SummaryItem label="Propósito" value={answers.purpose} href="/quiz/5" />
+                        <SummaryItem label="Tempo de Deus" value={answers.timing} href="/quiz/6" />
+                        <SummaryItem label="Localização" value={answers.location} href="/quiz/7" />
+                    </div>
+                </AccordionContent>
+            </AccordionItem>
+        </Accordion>
         
-        <h2 className="text-2xl font-bold mt-12 mb-4">Descubra quem está próximo de você</h2>
-        <Button asChild size="lg" className="btn-gradient px-12 py-8 rounded-full shadow-lg text-lg">
+        <h2 className="text-xl font-bold mt-8 mb-4">Descubra quem está próximo de você</h2>
+        <Button asChild size="lg" className="btn-gradient px-10 py-6 rounded-full shadow-lg text-base">
             <Link href="#">Encontrar meu par</Link>
         </Button>
     </div>
