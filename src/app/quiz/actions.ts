@@ -7,8 +7,13 @@ export async function getAiQuestion(answers: QuizAnswers) {
   try {
     // Format previous answers into a string for the AI prompt
     const previousAnswers = Object.entries(answers)
-      .filter(([, value]) => value !== undefined && value !== null && value !== '')
-      .map(([key, value]) => `${key}: ${value}`)
+      .filter(([, value]) => value !== undefined && value !== null && value !== '' && (!Array.isArray(value) || value.length > 0))
+      .map(([key, value]) => {
+        if (key === 'interests' && Array.isArray(value)) {
+          return `Interesses: ${value.join(', ')}`;
+        }
+        return `${key}: ${value}`
+      })
       .join(', ');
 
     if (!previousAnswers) {

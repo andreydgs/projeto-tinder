@@ -1,91 +1,78 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useQuiz } from '@/contexts/quiz-provider';
-import { getAiQuestion } from '@/app/quiz/actions';
 import { Button } from '@/components/ui/button';
-import { Skeleton } from '@/components/ui/skeleton';
-import { useToast } from '@/hooks/use-toast';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Coffee, UtensilsCrossed, Music, BookOpen, Camera, Gamepad2, Dumbbell, Plane } from 'lucide-react';
+import { useToast } from '@/hooks/use-toast';
 
-const preferenceOptions = [
-  'Companheirismo e amizade',
-  'Fé e valores compartilhados',
-  'Senso de humor e alegria',
-  'Ambição e crescimento mútuo',
+const interests = [
+    { name: 'Café', icon: <Coffee className="h-8 w-8" /> },
+    { name: 'Chá', icon: <Coffee className="h-8 w-8" /> },
+    { name: 'Comida', icon: <UtensilsCrossed className="h-8 w-8" /> },
+    { name: 'Música', icon: <Music className="h-8 w-8" /> },
+    { name: 'Leitura', icon: <BookOpen className="h-8 w-8" /> },
+    { name: 'Fotografia', icon: <Camera className="h-8 w-8" /> },
+    { name: 'Jogos', icon: <Gamepad2 className="h-8 w-8" /> },
+    { name: 'Exercícios', icon: <Dumbbell className="h-8 w-8" /> },
+    { name: 'Viagens', icon: <Plane className="h-8 w-8" /> },
 ];
 
 export default function Step3() {
   const router = useRouter();
   const { toast } = useToast();
   const { answers, setAnswer } = useQuiz();
-  const [generatedQuestion, setGeneratedQuestion] = useState<string | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [selectedPreference, setSelectedPreference] = useState<string | undefined>(answers.preference);
+  const [selectedInterests, setSelectedInterests] = useState<string[]>(answers.interests || []);
 
-  useEffect(() => {
-    async function fetchQuestion() {
-      setLoading(true);
-      const result = await getAiQuestion(answers);
-      setGeneratedQuestion(result.question);
-      setLoading(false);
-    }
-    fetchQuestion();
-  }, [answers]);
-
-  const handleSelect = (option: string) => {
-    setSelectedPreference(option);
+  const handleSelectInterest = (interestName: string) => {
+    setSelectedInterests(prev => {
+      if (prev.includes(interestName)) {
+        return prev.filter(item => item !== interestName);
+      }
+      return [...prev, interestName];
+    });
   };
 
   const handleSubmit = () => {
-    if (selectedPreference) {
-      setAnswer('preference', selectedPreference);
-      router.push('/quiz/4');
-    } else {
+     if (selectedInterests.length < 3) {
       toast({
         title: "Seleção necessária",
-        description: "Por favor, escolha uma opção para continuar.",
+        description: "Por favor, escolha pelo menos 3 interesses.",
         variant: "destructive"
       })
+      return;
     }
+    setAnswer('interests', selectedInterests);
+    router.push('/quiz/4');
   };
 
   return (
     <Card className="border-none shadow-none">
       <CardHeader className="text-center">
-          {loading ? (
-             <Skeleton className="h-8 w-3/4 mx-auto" />
-          ) : (
-             <CardTitle className="text-2xl font-bold">{generatedQuestion}</CardTitle>
-          )}
-        <CardDescription>Sua resposta nos ajuda a encontrar o par perfeito para você.</CardDescription>
+        <CardTitle className="text-2xl font-bold">Quais são seus interesses?</CardTitle>
+        <CardDescription>Selecione o que você gosta de fazer. Escolha no mínimo 3.</CardDescription>
       </CardHeader>
       <CardContent>
-        {loading ? (
-          <div className="space-y-4">
-            <Skeleton className="h-16 w-full rounded-lg" />
-            <Skeleton className="h-16 w-full rounded-lg" />
-            <Skeleton className="h-16 w-full rounded-lg" />
-            <Skeleton className="h-16 w-full rounded-lg" />
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-            {preferenceOptions.map((option) => (
-              <Button
-                key={option}
-                variant={selectedPreference === option ? 'default' : 'outline'}
-                className="text-md h-auto min-h-16 w-full whitespace-normal p-4 justify-center text-center"
-                onClick={() => handleSelect(option)}
-              >
-                {option}
-              </Button>
-            ))}
-          </div>
-        )}
-
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-8">
+          {interests.map((interest) => (
+            <Button
+              key={interest.name}
+              variant={selectedInterests.includes(interest.name) ? 'default' : 'outline'}
+              className="h-24 flex flex-col items-center justify-center space-y-2 whitespace-normal p-4 text-center"
+              onClick={() => handleSelectInterest(interest.name)}
+            >
+              {interest.icon}
+              <span className="font-semibold">{interest.name}</span>
+            </Button>
+          ))}
+        </div>
+        <div className="text-center mb-8 text-muted-foreground">
+          <p>Selecionados: {selectedInterests.length}</p>
+        </div>
         <div className="flex justify-center pt-4">
-          <Button onClick={handleSubmit} disabled={loading} size="lg" className="btn-gradient px-12 py-8 rounded-full shadow-lg text-lg">
+          <Button onClick={handleSubmit} size="lg" className="btn-gradient px-12 py-8 rounded-full shadow-lg text-lg">
             Continuar
           </Button>
         </div>

@@ -1,60 +1,95 @@
 'use client';
 
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { useQuiz } from '@/contexts/quiz-provider';
+import { getAiQuestion } from '@/app/quiz/actions';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { CheckCircle, Edit } from 'lucide-react';
-import Link from 'next/link';
+import { Skeleton } from '@/components/ui/skeleton';
+import { useToast } from '@/hooks/use-toast';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+
+const preferenceOptions = [
+  'Companheirismo e amizade',
+  'Fé e valores compartilhados',
+  'Senso de humor e alegria',
+  'Ambição e crescimento mútuo',
+];
 
 export default function Step4() {
-  const { answers } = useQuiz();
+  const router = useRouter();
+  const { toast } = useToast();
+  const { answers, setAnswer } = useQuiz();
+  const [generatedQuestion, setGeneratedQuestion] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [selectedPreference, setSelectedPreference] = useState<string | undefined>(answers.preference);
+
+  useEffect(() => {
+    async function fetchQuestion() {
+      setLoading(true);
+      const result = await getAiQuestion(answers);
+      setGeneratedQuestion(result.question);
+      setLoading(false);
+    }
+    fetchQuestion();
+  }, [answers]);
+
+  const handleSelect = (option: string) => {
+    setSelectedPreference(option);
+  };
+
+  const handleSubmit = () => {
+    if (selectedPreference) {
+      setAnswer('preference', selectedPreference);
+      router.push('/quiz/5');
+    } else {
+      toast({
+        title: "Seleção necessária",
+        description: "Por favor, escolha uma opção para continuar.",
+        variant: "destructive"
+      })
+    }
+  };
 
   return (
-    <div className="text-center p-4 flex flex-col items-center">
-        <CheckCircle className="h-16 w-16 text-green-500 mb-4" />
-        <h1 className="text-3xl md:text-4xl font-bold font-headline mb-4 text-foreground">
-            Tudo pronto!
-        </h1>
-        <p className="text-lg text-muted-foreground mb-8">
-            Seu perfil está completo. Confira suas respostas abaixo.
-        </p>
+    <Card className="border-none shadow-none">
+      <CardHeader className="text-center">
+          {loading ? (
+             <Skeleton className="h-8 w-3/4 mx-auto" />
+          ) : (
+             <CardTitle className="text-2xl font-bold">{generatedQuestion}</CardTitle>
+          )}
+        <CardDescription>Sua resposta nos ajuda a encontrar o par perfeito para você.</CardDescription>
+      </CardHeader>
+      <CardContent>
+        {loading ? (
+          <div className="space-y-4">
+            <Skeleton className="h-16 w-full rounded-lg" />
+            <Skeleton className="h-16 w-full rounded-lg" />
+            <Skeleton className="h-16 w-full rounded-lg" />
+            <Skeleton className="h-16 w-full rounded-lg" />
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+            {preferenceOptions.map((option) => (
+              <Button
+                key={option}
+                variant={selectedPreference === option ? 'default' : 'outline'}
+                className="text-md h-auto min-h-16 w-full whitespace-normal p-4 justify-center text-center"
+                onClick={() => handleSelect(option)}
+              >
+                {option}
+              </Button>
+            ))}
+          </div>
+        )}
 
-        <Card className="text-left mb-8 w-full max-w-md mx-auto shadow-lg">
-            <CardHeader className="flex flex-row items-center justify-between">
-                <div>
-                    <CardTitle>Resumo do seu Perfil</CardTitle>
-                    <CardDescription>Este é o perfil que usaremos para encontrar seu par divino.</CardDescription>
-                </div>
-                <Button variant="ghost" size="icon" asChild>
-                    <Link href="/quiz/2" aria-label="Editar perfil">
-                        <Edit className="h-4 w-4" />
-                    </Link>
-                </Button>
-            </CardHeader>
-            <CardContent className="space-y-4 text-sm">
-                <div className="flex justify-between items-center border-b pb-2">
-                    <span className="font-semibold text-muted-foreground">Nome:</span>
-                    <span className="font-medium">{answers.name || 'Não informado'}</span>
-                </div>
-                <div className="flex justify-between items-center border-b pb-2">
-                    <span className="font-semibold text-muted-foreground">Idade:</span>
-                    <span className="font-medium">{answers.age || 'Não informado'}</span>
-                </div>
-                <div className="flex justify-between items-center border-b pb-2">
-                    <span className="font-semibold text-muted-foreground">Gênero:</span>
-                    <span className="font-medium">{answers.gender || 'Não informado'}</span>
-                </div>
-                <div className="flex justify-between items-center">
-                    <span className="font-semibold text-muted-foreground">Prioridade:</span>
-                    <span className="font-medium text-right">{answers.preference || 'Não informado'}</span>
-                </div>
-            </CardContent>
-        </Card>
-        
-        <h2 className="text-2xl font-bold mt-12 mb-4">Descubra quem está próximo de você</h2>
-        <Button asChild size="lg" className="btn-gradient px-12 py-8 rounded-full shadow-lg text-lg">
-            <Link href="#">Encontrar meu par</Link>
-        </Button>
-    </div>
+        <div className="flex justify-center pt-4">
+          <Button onClick={handleSubmit} disabled={loading} size="lg" className="btn-gradient px-12 py-8 rounded-full shadow-lg text-lg">
+            Continuar
+          </Button>
+        </div>
+      </CardContent>
+    </Card>
   );
 }

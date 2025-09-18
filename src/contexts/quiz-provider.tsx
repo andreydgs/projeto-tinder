@@ -8,6 +8,7 @@ export interface QuizAnswers {
   name?: string;
   age?: number;
   gender?: string;
+  interests?: string[];
   preference?: string;
 }
 
