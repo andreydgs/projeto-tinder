@@ -25,6 +25,8 @@ export default function Step4() {
   const [loading, setLoading] = useState(true);
   const [selectedPreference, setSelectedPreference] = useState<string | undefined>(answers.preference);
 
+  const firstName = answers.name?.split(' ')[0];
+
   useEffect(() => {
     async function fetchQuestion() {
       setLoading(true);
@@ -62,7 +64,7 @@ export default function Step4() {
              <Skeleton className="h-8 w-3/4 mx-auto" />
           ) : (
              <CardTitle className="text-2xl font-bold">
-                Perfeito, {answers.name}! Agora nos conte o que você mais valoriza em um relacionamento
+                Perfeito, {firstName}! Agora nos conte o que você mais valoriza em um relacionamento
              </CardTitle>
           )}
         <CardDescription>Sua resposta nos ajuda a encontrar o par perfeito para você.</CardDescription>
