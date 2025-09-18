@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { CheckCircle, Heart, Lock, MessageCircle, User, Users, ShieldCheck, BadgeCheck, Accessibility } from 'lucide-react';
+import { CheckCircle, Heart, Lock, MessageCircle, User, Users, ShieldCheck, BadgeCheck, Accessibility, AlarmClock, Siren, Hourglass } from 'lucide-react';
 import { Logo } from '@/components/logo';
 
 const CountdownTimer = () => {
@@ -63,16 +63,26 @@ export default function SalesPage() {
           </div>
         </header>
 
+        <section className="bg-destructive text-destructive-foreground text-center py-3">
+          <div className="container mx-auto px-4">
+              <div className="flex items-center justify-center gap-2 text-base font-bold mb-1">
+                  <AlarmClock className="h-5 w-5" />
+                  <Siren className="h-5 w-5 text-yellow-300" />
+                  <p>OFERTA EXCLUSIVA</p>
+              </div>
+              <p className="text-sm font-medium mb-1 flex items-center justify-center gap-1">
+                  <Hourglass className="h-4 w-4"/> Tempo restante: <CountdownTimer />
+              </p>
+              <p className="text-xs">
+                  Entre Hoje e Garanta Seu Desconto Exclusivo!
+              </p>
+          </div>
+        </section>
+
       <main className="container mx-auto px-4 py-4 sm:py-6 md:py-8">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
           <section className="text-center mb-6">
-            <div className="inline-block bg-destructive/10 text-destructive font-semibold rounded-full px-3 py-1 text-sm mb-2">
-              🚨 Oferta Exclusiva
-            </div>
-            <p className="text-base font-medium mb-2">
-              ⏳ Tempo restante: <CountdownTimer />
-            </p>
             <h1 className="text-2xl md:text-4xl font-bold mb-2">
               Entre Hoje e Garanta Seu Desconto Exclusivo!
             </h1>
@@ -289,3 +299,5 @@ export default function SalesPage() {
     </div>
   );
 }
+
+    
