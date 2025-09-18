@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { CheckCircle, Heart, Lock, MessageCircle, User, Users, ShieldCheck, BadgeCheck, Accessibility, AlarmClock, Siren, Hourglass } from 'lucide-react';
+import { CheckCircle, Heart, Lock, MessageCircle, User, Users, ShieldCheck, BadgeCheck, Accessibility, AlarmClock, Siren, Hourglass, Crown, Star } from 'lucide-react';
 import { Logo } from '@/components/logo';
 
 const CountdownTimer = () => {
@@ -55,26 +55,22 @@ export default function SalesPage() {
 
   return (
     <div className="bg-background text-foreground">
-        <header className="p-4 border-b sticky top-0 bg-background/80 backdrop-blur-sm z-20">
-          <div className="container mx-auto flex flex-col gap-2">
+        <header className="py-4 border-b sticky top-0 bg-background/80 backdrop-blur-sm z-20">
+          <div className="container mx-auto flex flex-col gap-2 px-4">
             <div className="flex justify-center">
               <Logo />
             </div>
           </div>
         </header>
 
-        <section className="bg-destructive text-destructive-foreground text-center py-3">
+        <section className="bg-destructive text-destructive-foreground text-center py-2">
           <div className="container mx-auto px-4">
-              <div className="flex items-center justify-center gap-2 text-base font-bold mb-1">
-                  <AlarmClock className="h-5 w-5" />
+              <div className="flex items-center justify-center gap-2 text-sm font-bold">
                   <Siren className="h-5 w-5 text-yellow-300" />
                   <p>OFERTA EXCLUSIVA</p>
               </div>
-              <p className="text-sm font-medium mb-1 flex items-center justify-center gap-1">
+              <p className="text-xs font-medium flex items-center justify-center gap-1">
                   <Hourglass className="h-4 w-4"/> Tempo restante: <CountdownTimer />
-              </p>
-              <p className="text-xs">
-                  Entre Hoje e Garanta Seu Desconto Exclusivo!
               </p>
           </div>
         </section>
@@ -83,7 +79,7 @@ export default function SalesPage() {
         <div className="max-w-4xl mx-auto">
           {/* Header */}
           <section className="text-center mb-6">
-            <h1 className="text-2xl md:text-4xl font-bold mb-2">
+            <h1 className="text-2xl md:text-3xl font-bold mb-2">
               Entre Hoje e Garanta Seu Desconto Exclusivo!
             </h1>
             <p className="text-base md:text-lg text-muted-foreground">
@@ -95,6 +91,82 @@ export default function SalesPage() {
           <div className="bg-green-100 text-green-800 rounded-lg p-3 text-center font-semibold text-base mb-6">
             💡 Boa notícia: 37 pessoas com seus valores estão online em {userLocation}.
           </div>
+
+           {/* Pricing Section */}
+          <section className="mb-8">
+             <h2 className="text-xl md:text-3xl font-bold text-center mb-4">Escolha seu Plano</h2>
+            <div className="grid md:grid-cols-3 gap-6 items-center">
+
+              {/* Basic Plan */}
+                <Card className="rounded-2xl">
+                    <CardHeader className="p-6 text-center">
+                    <CardTitle className="text-xl">Plano Básico</CardTitle>
+                    <p className="text-4xl font-bold">R$ 17,90</p>
+                    <CardDescription>Acesso limitado</CardDescription>
+                    </CardHeader>
+                    <CardContent className="space-y-4 p-6 pt-0">
+                    <ul className="space-y-2 text-sm text-muted-foreground">
+                        <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-green-500" /> 5 matches por dia</li>
+                        <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-green-500" /> Chat básico</li>
+                        <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-green-500" /> Filtros simples</li>
+                    </ul>
+                    <Button asChild className="w-full bg-gray-600 hover:bg-gray-700 text-white text-base py-6 rounded-lg"><Link href="#">Escolher Básico</Link></Button>
+                    </CardContent>
+                </Card>
+
+              {/* Premium Plan */}
+                <Card className="border-primary border-2 rounded-2xl relative bg-gradient-to-br from-pink-500 to-red-500 text-white">
+                    <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-yellow-400 text-black text-sm font-semibold px-4 py-1 rounded-full flex items-center gap-2">
+                        <Crown className="w-4 h-4"/>
+                        Mais Popular
+                    </div>
+                    <CardHeader className="p-6 text-center">
+                    <CardTitle className="text-xl">Plano Premium</CardTitle>
+                    <p className="text-4xl font-bold">R$ 27,90</p>
+                    <CardDescription className="text-white/90">Acesso completo</CardDescription>
+                    </CardHeader>
+                    <CardContent className="space-y-4 p-6 pt-0">
+                    <ul className="space-y-2 text-sm">
+                        <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4" /> Matches ilimitados</li>
+                        <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4" /> Chat ilimitado</li>
+                        <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4" /> Filtros avançados</li>
+                        <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4" /> Prioridade no suporte</li>
+                        <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4" /> Ver quem curtiu você</li>
+                    </ul>
+                    <Button asChild className="w-full bg-white text-primary hover:bg-gray-100 text-base py-6 rounded-lg"><Link href="#">Escolher Premium</Link></Button>
+                    </CardContent>
+                </Card>
+
+              {/* Alliance Plan */}
+                <Card className="rounded-2xl bg-amber-50 border-2 border-amber-400 relative">
+                    <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-amber-400 text-black text-sm font-semibold px-4 py-1 rounded-full flex items-center gap-2">
+                        <Star className="w-4 h-4"/>
+                        Premium Plus
+                    </div>
+                    <CardHeader className="p-6 text-center">
+                    <CardTitle className="text-xl">Plano Aliança</CardTitle>
+                    <p className="text-4xl font-bold">R$ 37,90</p>
+                    <CardDescription className="text-amber-800">Acesso completo + benefícios exclusivos</CardDescription>
+                    </CardHeader>
+                    <CardContent className="space-y-4 p-6 pt-0">
+                    <ul className="space-y-2 text-sm text-muted-foreground">
+                        <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-amber-600" /> Matches ilimitados</li>
+                        <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-amber-600" /> Chat ilimitado</li>
+                        <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-amber-600" /> Filtros avançados</li>
+                        <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-amber-600" /> Prioridade no suporte</li>
+                        <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-amber-600" /> Ver quem curtiu você</li>
+                        <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-amber-600" /> Ver quem visitou seu perfil</li>
+                        <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-amber-600" /> Enviar mensagens sem match</li>
+                        <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-amber-600" /> 1 Boost por semana</li>
+                        <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-amber-600" /> Destaque no ranking</li>
+                        <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-amber-600" /> Selo "Busca Relacionamento Sério"</li>
+                    </ul>
+                    <Button asChild className="w-full bg-amber-500 hover:bg-amber-600 text-white text-base py-6 rounded-lg"><Link href="#">Escolher Aliança</Link></Button>
+                    </CardContent>
+                </Card>
+
+            </div>
+          </section>
 
           {/* Community Section */}
           <section className="text-center mb-8">
@@ -175,76 +247,6 @@ export default function SalesPage() {
               <p className="text-muted-foreground text-xs">relacionamentos</p>
             </div>
           </div>
-
-
-          {/* Pricing Section */}
-          <section className="mb-8">
-            <div className="grid md:grid-cols-3 gap-4 items-start">
-              {/* Monthly Plan */}
-              <Card>
-                <CardHeader className="p-4">
-                  <CardTitle className="text-base">🔹 Acesso Mensal</CardTitle>
-                  <CardDescription className="text-xs">Conheça pessoas com propósito</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-3 p-4 pt-0">
-                  <div className="text-center">
-                    <p className="line-through text-muted-foreground text-sm">R$ 49,90</p>
-                    <p className="text-2xl font-bold">R$ 19,96</p>
-                  </div>
-                  <ul className="space-y-1 text-xs">
-                    <li className="flex items-center gap-2"><CheckCircle className="h-3 w-3 text-green-500" /> Acesso aos chats</li>
-                    <li className="flex items-center gap-2"><CheckCircle className="h-3 w-3 text-green-500" /> Conexão por corações</li>
-                    <li className="flex items-center gap-2"><CheckCircle className="h-3 w-3 text-green-500" /> Conversa privada</li>
-                  </ul>
-                  <Button asChild className="w-full btn-gradient text-sm h-9"><Link href="#">Quero Fazer Parte</Link></Button>
-                </CardContent>
-              </Card>
-
-              {/* Annual Plan */}
-              <Card className="border-primary border-2 relative">
-                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-xs font-semibold px-2 py-0.5 rounded-full">MAIS POPULAR</div>
-                <CardHeader className="p-4">
-                  <CardTitle className="text-base">🔸 Acesso Anual</CardTitle>
-                  <CardDescription className="text-xs">12 meses de conexões cristãs</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-3 p-4 pt-0">
-                  <div className="text-center">
-                    <p className="line-through text-muted-foreground text-sm">R$ 214,90</p>
-                    <p className="text-2xl font-bold">R$ 27,94</p>
-                  </div>
-                  <ul className="space-y-1 text-xs">
-                    <li className="flex items-center gap-2 font-bold text-primary"><BadgeCheck className="h-3 w-3" /> Economia de 87%</li>
-                    <li className="flex items-center gap-2"><CheckCircle className="h-3 w-3 text-green-500" /> Acesso aos chats</li>
-                    <li className="flex items-center gap-2"><CheckCircle className="h-3 w-3 text-green-500" /> Conexão por corações</li>
-                    <li className="flex items-center gap-2"><CheckCircle className="h-3 w-3 text-green-500" /> Suporte</li>
-                  </ul>
-                  <Button asChild className="w-full btn-gradient text-sm h-9"><Link href="#">Escolha Inteligente</Link></Button>
-                </CardContent>
-              </Card>
-
-              {/* Lifetime Plan */}
-              <Card>
-                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-green-600 text-white text-xs font-semibold px-2 py-0.5 rounded-full">Melhor Escolha!</div>
-                <CardHeader className="p-4">
-                  <CardTitle className="text-base">🔰 Acesso Vitalício</CardTitle>
-                  <CardDescription className="text-xs">Acesso para sempre + Ebook</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-3 p-4 pt-0">
-                  <div className="text-center">
-                    <p className="line-through text-muted-foreground text-sm">R$ 214,90</p>
-                    <p className="text-2xl font-bold">R$ 57,90</p>
-                  </div>
-                   <ul className="space-y-1 text-xs">
-                    <li className="flex items-center gap-2"><CheckCircle className="h-3 w-3 text-green-500" /> Acesso vitalício</li>
-                    <li className="flex items-center gap-2"><CheckCircle className="h-3 w-3 text-green-500" /> eBook exclusivo</li>
-                    <li className="flex items-center gap-2"><CheckCircle className="h-3 w-3 text-green-500" /> Todos os benefícios</li>
-                    <li className="flex items-center gap-2"><CheckCircle className="h-3 w-3 text-green-500" /> Suporte VIP</li>
-                  </ul>
-                  <Button asChild className="w-full btn-gradient text-sm h-9"><Link href="#">🎁 Melhor Escolha!</Link></Button>
-                </CardContent>
-              </Card>
-            </div>
-          </section>
           
            {/* Who is this for Section */}
           <section className="bg-secondary rounded-lg p-6 mb-8">
@@ -288,8 +290,6 @@ export default function SalesPage() {
              <div className="flex justify-center items-center gap-3 mb-2">
                 <ShieldCheck className="h-4 w-4" />
                 <span>100% Seguro</span>
-                <ShieldCheck className="h-4 w-4" />
-                <span>Privacidade Garantida</span>
              </div>
              <p>Seus dados estão protegidos. Transação processada por ambiente seguro.</p>
           </section>
