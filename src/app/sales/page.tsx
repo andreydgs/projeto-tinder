@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -251,7 +252,7 @@ export default function SalesPage() {
             <h2 className="text-xl font-bold mb-2">💖 Sua nova história pode começar agora</h2>
             <p className="bg-green-100 text-green-800 rounded-full px-3 py-1 mb-4 inline-block text-sm">✅ 65 pessoas online agora</p>
             <p className="text-muted-foreground mb-6 max-w-2xl mx-auto text-sm">Milhares de pessoas como você já transformaram suas vidas. Não deixe a felicidade passar!</p>
-            <Button asChild size="lg" className="btn-gradient text-base px-10 py-6 rounded-full shadow-lg"><Link href="#">Entrar Agora</Link></Button>
+            <Button asChild size="lg" className="btn-gradient text-base px-10 py-6 rounded-xl shadow-lg"><Link href="#">Entrar Agora</Link></Button>
           </section>
 
           {/* FAQ */}

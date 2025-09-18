@@ -31,7 +31,7 @@ export default function Step1() {
       <p className="text-base text-muted-foreground mb-6 max-w-lg">
         Responda algumas perguntas para encontrarmos a pessoa ideal para você com base na fé e nos valores que importam.
       </p>
-      <Button asChild size="lg" className="btn-gradient text-lg px-12 py-7 rounded-full shadow-lg">
+      <Button asChild size="lg" className="btn-gradient text-lg px-12 py-7 rounded-xl shadow-lg">
         <Link href="/quiz/2">Começar</Link>
       </Button>
     </div>

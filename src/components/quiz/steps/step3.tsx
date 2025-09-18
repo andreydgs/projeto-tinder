@@ -74,7 +74,7 @@ export default function Step3() {
           <p>Selecionados: {selectedInterests.length}</p>
         </div>
         <div className="flex justify-center">
-          <Button onClick={handleSubmit} size="lg" className="btn-gradient px-10 py-6 rounded-full shadow-lg text-lg">
+          <Button onClick={handleSubmit} size="lg" className="btn-gradient px-10 py-6 rounded-xl shadow-lg text-lg">
             Continuar
           </Button>
         </div>

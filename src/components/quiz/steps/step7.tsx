@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useRouter } from 'next/navigation';
@@ -91,7 +92,7 @@ export default function Step7() {
           </div>
 
         <div className="flex justify-center">
-          <Button onClick={handleSubmit} size="lg" className="btn-gradient px-10 py-6 rounded-full shadow-lg text-lg">
+          <Button onClick={handleSubmit} size="lg" className="btn-gradient px-10 py-6 rounded-xl shadow-lg text-lg">
             Analisar Perfil
           </Button>
         </div>

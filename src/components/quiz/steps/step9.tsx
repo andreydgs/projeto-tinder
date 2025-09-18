@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useQuiz } from '@/contexts/quiz-provider';
@@ -59,7 +60,7 @@ export default function Step9() {
         </Accordion>
         
         <h2 className="text-xl font-bold mt-4 mb-4">Descubra quem está próximo de você</h2>
-        <Button asChild size="lg" className="btn-gradient px-10 py-6 rounded-full shadow-lg text-base">
+        <Button asChild size="lg" className="btn-gradient px-10 py-6 rounded-xl shadow-lg text-base">
             <Link href="#">Encontrar meu par</Link>
         </Button>
     </div>

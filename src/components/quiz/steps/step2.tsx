@@ -154,7 +154,7 @@ export default function Step2() {
               )}
             />
             <div className="flex justify-center pt-2">
-              <Button type="submit" size="lg" className="btn-gradient px-10 py-6 rounded-full shadow-lg text-lg">
+              <Button type="submit" size="lg" className="btn-gradient px-10 py-6 rounded-xl shadow-lg text-lg">
                 Continuar
               </Button>
             </div>

@@ -1,3 +1,4 @@
+
 'use client';
 
 import Image from 'next/image';
@@ -102,7 +103,7 @@ export default function Step9m() {
                     <div className="bg-muted rounded-xl p-3 text-sm mb-4">
                         <p>+78 pessoas com seus valores estão esperando por você</p>
                     </div>
-                    <Button asChild size="lg" className="w-full btn-gradient px-10 py-7 rounded-full shadow-lg text-lg">
+                    <Button asChild size="lg" className="w-full btn-gradient px-10 py-7 rounded-xl shadow-lg text-lg">
                         <Link href="/sales">
                             Ver Todas as Conexões
                             <Heart className="w-5 h-5 ml-2" />
