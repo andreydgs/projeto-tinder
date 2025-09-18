@@ -69,7 +69,7 @@ export default function Step9h() {
     }
 
     const firstProfile = femaleProfiles[0];
-    const otherProfiles = femaleProfiles.slice(1).filter(p => p.age >= minAge && p.age <= maxAge);
+    const otherProfiles = femaleProfiles.slice(1);
 
     return [firstProfile, ...otherProfiles];
   }

@@ -19,7 +19,7 @@ export const femaleProfiles: FemaleProfile[] = [
   },
   {
     name: 'Beatriz',
-    age: 29,
+    age: 22,
     distance: 1.5,
     description: 'Professora cristã, apaixonada por música gospel e crianças. Creio que Deus tem planos perfeitos para nossa vida.',
     imageUrl: 'https://i.imgur.com/3qV0WxN.jpeg',
