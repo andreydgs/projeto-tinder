@@ -53,29 +53,16 @@ const ProfileCard = ({ profile, isLocked }: { profile: MaleProfile, isLocked?: b
 
 export default function Step9m() {
   const { answers } = useQuiz();
-  const userAge = answers.age || 0;
 
-  const getFilteredProfiles = () => {
-    let minAge: number, maxAge: number;
+  const getSortedProfiles = () => {
+    // Sort all profiles by age in ascending order
+    const sortedProfiles = [...maleProfiles].sort((a, b) => a.age - b.age);
 
-    if (userAge <= 29) {
-      minAge = 20;
-      maxAge = 40;
-    } else if (userAge >= 30 && userAge <= 49) {
-      minAge = 25;
-      maxAge = 50;
-    } else {
-      minAge = 40;
-      maxAge = 65;
-    }
-    
-    const firstProfile = maleProfiles[0];
-    const otherProfiles = maleProfiles.slice(1).filter(p => p.age >= minAge && p.age <= maxAge);
-
-    return [firstProfile, ...otherProfiles];
+    // The first profile in the sorted list will be the one that is not blurred.
+    return sortedProfiles;
   }
 
-  const profilesToShow = getFilteredProfiles();
+  const profilesToShow = getSortedProfiles();
 
   return (
     <div className="container mx-auto py-4 px-4 sm:py-6 md:py-8">

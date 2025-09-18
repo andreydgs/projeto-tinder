@@ -53,29 +53,17 @@ const ProfileCard = ({ profile, isLocked }: { profile: FemaleProfile, isLocked?:
 
 export default function Step9h() {
   const { answers } = useQuiz();
-  const userAge = answers.age || 0;
 
-  const getFilteredProfiles = () => {
-    let minAge: number, maxAge: number;
-
-    if (userAge <= 29) {
-      minAge = 20;
-      maxAge = 40;
-    } else if (userAge >= 30 && userAge <= 49) {
-      minAge = 25;
-      maxAge = 50;
-    } else {
-      minAge = 40;
-      maxAge = 65;
-    }
-
-    const firstProfile = femaleProfiles[0];
-    const otherProfiles = femaleProfiles.slice(1).filter(p => p.age >= minAge && p.age <= maxAge);
-
-    return [firstProfile, ...otherProfiles];
+  const getSortedProfiles = () => {
+    // Sort all profiles by age in ascending order
+    const sortedProfiles = [...femaleProfiles].sort((a, b) => a.age - b.age);
+    
+    // The first profile in the sorted list will be the one that is not blurred.
+    // The rest of the logic can then proceed based on this sorted list.
+    return sortedProfiles;
   }
 
-  const profilesToShow = getFilteredProfiles();
+  const profilesToShow = getSortedProfiles();
 
 
   return (
