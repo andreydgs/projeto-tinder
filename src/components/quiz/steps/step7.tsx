@@ -56,9 +56,13 @@ export default function Step7() {
                     <span className="font-semibold text-muted-foreground">Propósito:</span>
                     <span className="font-medium text-right">{answers.purpose || 'Não informado'}</span>
                 </div>
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between items-center border-b pb-2">
                     <span className="font-semibold text-muted-foreground">Valores:</span>
                     <span className="font-medium text-right">{answers.values || 'Não informado'}</span>
+                </div>
+                <div className="flex justify-between items-center">
+                    <span className="font-semibold text-muted-foreground">Tempo de Deus:</span>
+                    <span className="font-medium text-right">{answers.timing || 'Não informado'}</span>
                 </div>
             </CardContent>
         </Card>

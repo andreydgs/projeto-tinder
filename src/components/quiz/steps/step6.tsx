@@ -7,26 +7,26 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { useToast } from '@/hooks/use-toast';
 import { useState } from 'react';
 
-const valuesOptions = [
-    'Fé em Deus acima de tudo',
-    'Honestidade e transparência',
-    'Respeito e companheirismo',
-    'Propósito e crescimento mútuo',
+const timingOptions = [
+    'Absolutamente, confio no tempo de Deus',
+    'Sim, mas também faço minha parte',
+    'Acredito e oro por isso diariamente',
+    'Tenho fé que o melhor está por vir',
 ];
 
 export default function Step6() {
   const router = useRouter();
   const { toast } = useToast();
   const { answers, setAnswer } = useQuiz();
-  const [selectedValues, setSelectedValues] = useState<string | undefined>(answers.values);
+  const [selectedTiming, setSelectedTiming] = useState<string | undefined>(answers.timing);
 
   const handleSelect = (option: string) => {
-    setSelectedValues(option);
+    setSelectedTiming(option);
   };
 
   const handleSubmit = () => {
-    if (selectedValues) {
-      setAnswer('values', selectedValues);
+    if (selectedTiming) {
+      setAnswer('timing', selectedTiming);
       router.push('/quiz/7');
     } else {
       toast({
@@ -40,15 +40,15 @@ export default function Step6() {
   return (
     <Card className="border-none shadow-none">
       <CardHeader className="text-center">
-        <CardTitle className="text-2xl font-bold">Quais valores você considera essenciais em um relacionamento?</CardTitle>
+        <CardTitle className="text-2xl font-bold">Você acredita que Deus tem um tempo certo para tudo?</CardTitle>
         <CardDescription>Sua resposta nos ajuda a encontrar pessoas com a mesma visão que você.</CardDescription>
       </CardHeader>
       <CardContent>
           <div className="grid grid-cols-1 gap-4 mb-8">
-            {valuesOptions.map((option) => (
+            {timingOptions.map((option) => (
               <Button
                 key={option}
-                variant={selectedValues === option ? 'default' : 'outline'}
+                variant={selectedTiming === option ? 'default' : 'outline'}
                 className="text-md h-auto min-h-16 w-full whitespace-normal p-4 justify-center text-center"
                 onClick={() => handleSelect(option)}
               >
