@@ -12,14 +12,22 @@ import { Input } from '@/components/ui/input';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
+import { Male, User } from 'lucide-react';
+
+const genderEnum = z.enum(['Masculino', 'Feminino'], { required_error: 'Selecione seu gênero.' });
 
 const formSchema = z.object({
   name: z.string().min(2, 'O nome deve ter pelo menos 2 caracteres.'),
   age: z.coerce.number().min(18, 'Você deve ter pelo menos 18 anos.').max(99, 'Idade inválida.'),
-  gender: z.enum(['Masculino', 'Feminino', 'Outro'], { required_error: 'Selecione seu gênero.' }),
+  gender: genderEnum,
 });
 
 type FormData = z.infer<typeof formSchema>;
+
+const genderOptions = [
+  { value: 'Masculino', icon: <Male className="h-8 w-8" /> },
+  { value: 'Feminino', icon: <User className="h-8 w-8" /> },
+];
 
 export default function Step2() {
   const router = useRouter();
@@ -30,7 +38,7 @@ export default function Step2() {
     defaultValues: {
       name: answers.name || '',
       age: answers.age || undefined,
-      gender: answers.gender,
+      gender: answers.gender ? genderEnum.parse(answers.gender) : undefined,
     },
   });
 
@@ -86,15 +94,16 @@ export default function Step2() {
                     <RadioGroup
                       onValueChange={field.onChange}
                       defaultValue={field.value}
-                      className="grid grid-cols-1 sm:grid-cols-3 gap-4"
+                      className="grid grid-cols-2 gap-4"
                     >
-                      {['Masculino', 'Feminino', 'Outro'].map((gender) => (
-                        <FormItem key={gender}>
+                      {genderOptions.map((option) => (
+                        <FormItem key={option.value}>
                           <FormControl>
-                            <RadioGroupItem value={gender} id={gender} className="sr-only peer"/>
+                            <RadioGroupItem value={option.value} id={option.value} className="sr-only peer"/>
                           </FormControl>
-                           <Label htmlFor={gender} className="flex flex-col items-center justify-between rounded-md border-2 border-muted bg-popover p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary h-16 cursor-pointer">
-                            {gender}
+                           <Label htmlFor={option.value} className="flex flex-col items-center justify-center space-y-2 rounded-md border-2 border-muted bg-popover p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary h-24 cursor-pointer">
+                            {option.icon}
+                            <span className="font-semibold">{option.value}</span>
                           </Label>
                         </FormItem>
                       ))}
