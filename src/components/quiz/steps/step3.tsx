@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import { useQuiz } from '@/contexts/quiz-provider';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Coffee, UtensilsCrossed, Music, BookOpen, Camera, Gamepad2, Dumbbell, Plane, Palette } from 'lucide-react';
+import { Coffee, UtensilsCrossed, Music, BookOpen, Camera, Gamepad2, Dumbbell, Plane, Palette, ArrowRight } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 const interests = [
@@ -76,6 +76,7 @@ export default function Step3() {
         <div className="flex justify-center">
           <Button onClick={handleSubmit} size="lg" className="btn-gradient px-10 py-6 rounded-xl shadow-lg text-lg">
             Continuar
+            <ArrowRight className="w-5 h-5 ml-2" />
           </Button>
         </div>
       </CardContent>

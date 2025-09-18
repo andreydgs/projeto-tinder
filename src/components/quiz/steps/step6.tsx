@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
 import { useState } from 'react';
+import { ArrowRight } from 'lucide-react';
 
 const timingOptions = [
     'Absolutamente, confio no tempo de Deus',
@@ -61,6 +62,7 @@ export default function Step6() {
         <div className="flex justify-center">
           <Button onClick={handleSubmit} size="lg" className="btn-gradient px-10 py-6 rounded-xl shadow-lg text-lg">
             Próxima
+            <ArrowRight className="w-5 h-5 ml-2" />
           </Button>
         </div>
       </CardContent>

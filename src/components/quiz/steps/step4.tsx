@@ -9,6 +9,7 @@ import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
 import { useToast } from '@/hooks/use-toast';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { ArrowRight } from 'lucide-react';
 
 const preferenceOptions = [
     'Fé em Deus acima de tudo',
@@ -95,6 +96,7 @@ export default function Step4() {
         <div className="flex justify-center">
           <Button onClick={handleSubmit} disabled={loading} size="lg" className="btn-gradient px-10 py-6 rounded-xl shadow-lg text-lg">
             Continuar
+            <ArrowRight className="w-5 h-5 ml-2" />
           </Button>
         </div>
       </CardContent>

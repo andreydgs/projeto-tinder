@@ -12,7 +12,7 @@ import { Input } from '@/components/ui/input';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
-import { User, MapPin } from 'lucide-react';
+import { User, MapPin, ArrowRight } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { Skeleton } from '@/components/ui/skeleton';
 
@@ -156,6 +156,7 @@ export default function Step2() {
             <div className="flex justify-center pt-2">
               <Button type="submit" size="lg" className="btn-gradient px-10 py-6 rounded-xl shadow-lg text-lg">
                 Continuar
+                <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </div>
           </form>

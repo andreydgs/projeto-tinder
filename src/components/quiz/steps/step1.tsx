@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { useQuiz } from '@/contexts/quiz-provider';
 import { useEffect } from 'react';
+import { ArrowRight } from 'lucide-react';
 
 export default function Step1() {
   const { clearAnswers } = useQuiz();
@@ -32,7 +33,7 @@ export default function Step1() {
         Responda algumas perguntas para encontrarmos a pessoa ideal para você com base na fé e nos valores que importam.
       </p>
       <Button asChild size="lg" className="btn-gradient text-lg px-12 py-7 rounded-xl shadow-lg">
-        <Link href="/quiz/2">Começar</Link>
+        <Link href="/quiz/2">Começar <ArrowRight className="w-5 h-5 ml-2" /></Link>
       </Button>
     </div>
   );
