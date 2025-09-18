@@ -13,8 +13,7 @@ import Step7 from '@/components/quiz/steps/step7';
 import Step8 from '@/components/quiz/steps/step8';
 import Step9 from '@/components/quiz/steps/step9';
 import Step9m from '@/components/quiz/steps/step9m';
-// Placeholder for male results page
-// import Step9f from '@/components/quiz/steps/step9f';
+import Step9h from '@/components/quiz/steps/step9h';
 
 type QuizPageProps = {
   params: {
@@ -31,10 +30,9 @@ export default function QuizPage({ params }: QuizPageProps) {
     if (answers.gender === 'Feminino') {
       redirect('/quiz/9m');
     }
-    // TODO: Redirect to male results page when created
-    // if (answers.gender === 'Masculino') {
-    //   redirect('/quiz/9f');
-    // }
+    if (answers.gender === 'Masculino') {
+      redirect('/quiz/9h');
+    }
   }
 
   const renderStep = () => {
@@ -60,8 +58,8 @@ export default function QuizPage({ params }: QuizPageProps) {
         return <Step9 />;
       case '9m':
         return <Step9m />;
-      // case '9f':
-      //   return <Step9f />;
+      case '9h':
+        return <Step9h />;
       default:
         // For any invalid step, redirect to the beginning.
         redirect('/quiz/1');
@@ -70,6 +68,10 @@ export default function QuizPage({ params }: QuizPageProps) {
   
   if (step === '9m') {
     return <Step9m />;
+  }
+
+  if (step === '9h') {
+    return <Step9h />;
   }
 
 

@@ -8,7 +8,7 @@ import { usePathname } from 'next/navigation';
 
 export default function QuizLayout({ children }: { children: ReactNode }) {
   const pathname = usePathname();
-  const isMatchPage = pathname === '/quiz/9m';
+  const isMatchPage = pathname === '/quiz/9m' || pathname === '/quiz/9h';
 
   return (
     <QuizProvider>
