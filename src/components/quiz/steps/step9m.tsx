@@ -20,7 +20,7 @@ const ProfileCard = ({ profile, isLocked }: { profile: MaleProfile, isLocked?: b
                 src={profile.imageUrl}
                 alt={`Foto de ${profile.name}`}
                 fill
-                className={cn("rounded-full object-cover", isLocked && "blur-md")}
+                className={cn("rounded-full object-cover", isLocked && "blur-sm")}
                 data-ai-hint={profile.imageHint}
             />
              {isLocked && (
