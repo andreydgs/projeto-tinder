@@ -1,68 +1,66 @@
 'use client';
 
-import { useQuiz } from '@/contexts/quiz-provider';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { CheckCircle, Edit, ChevronDown, User, Heart, Briefcase, Clock, MapPin } from 'lucide-react';
-import Link from 'next/link';
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion"
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import { CheckCircle, Loader, UserSearch, HeartHandshake, MapPin, BrainCircuit } from 'lucide-react';
 
-const SummaryItem = ({ label, value, href }: { label: string; value?: string | string[] | number; href: string }) => {
-  const displayValue = Array.isArray(value) ? value.join(', ') : value;
-  return (
-    <div className="flex justify-between items-center py-3 border-b last:border-none">
-      <span className="text-sm text-muted-foreground">{label}</span>
-      <div className="flex items-center gap-4">
-        <span className="text-sm font-medium text-right">{displayValue || 'Não informado'}</span>
-        <Button variant="ghost" size="icon" asChild className="h-8 w-8">
-            <Link href={href} aria-label={`Editar ${label}`}>
-                <Edit className="h-4 w-4 text-muted-foreground" />
-            </Link>
-        </Button>
-      </div>
-    </div>
-  );
-};
-
+const analysisSteps = [
+  { text: 'Analisando suas respostas...', icon: <BrainCircuit className="h-6 w-6" /> },
+  { text: 'Identificando compatibilidades...', icon: <UserSearch className="h-6 w-6" /> },
+  { text: 'Buscando perfis na sua região...', icon: <MapPin className="h-6 w-6" /> },
+  { text: 'Calculando afinidades...', icon: <HeartHandshake className="h-6 w-6" /> },
+  { text: 'Finalizando análise...', icon: <Loader className="h-6 w-6 animate-spin" /> },
+];
 
 export default function Step8() {
-  const { answers } = useQuiz();
+  const router = useRouter();
+  const [currentStep, setCurrentStep] = useState(0);
+
+  useEffect(() => {
+    const stepInterval = setInterval(() => {
+      setCurrentStep(prev => prev + 1);
+    }, 1000); // 1 second per step
+
+    const redirectTimeout = setTimeout(() => {
+      router.push('/quiz/9');
+    }, 5000); // 5 seconds total
+
+    return () => {
+      clearInterval(stepInterval);
+      clearTimeout(redirectTimeout);
+    };
+  }, [router]);
 
   return (
-    <div className="text-center p-4 flex flex-col items-center">
-        <CheckCircle className="h-12 w-12 text-green-500 mb-3" />
-        <h1 className="text-2xl md:text-3xl font-bold mb-2 text-foreground">
-            Tudo pronto!
-        </h1>
-        <p className="text-base text-muted-foreground mb-6">
-            Seu perfil está completo. Confira suas respostas abaixo.
-        </p>
+    <div className="text-center p-4 flex flex-col items-center justify-center min-h-[70vh]">
+      <h1 className="text-2xl md:text-3xl font-bold mb-3 text-foreground">
+        Analisando seu perfil...
+      </h1>
+      <p className="text-base text-muted-foreground mb-12">
+        Estamos encontrando conexões com base na sua fé e valores...
+      </p>
 
-        <Accordion type="single" collapsible className="w-full max-w-md mx-auto mb-8" defaultValue="item-1">
-            <AccordionItem value="item-1">
-                <AccordionTrigger className="font-semibold">Resumo do seu Perfil</AccordionTrigger>
-                <AccordionContent>
-                    <div className="space-y-1 text-left">
-                        <SummaryItem label="Perfil" value={`${answers.name || ''}, ${answers.age || ''}`} href="/quiz/2" />
-                        <SummaryItem label="Interesses" value={answers.interests} href="/quiz/3" />
-                        <SummaryItem label="Prioridade" value={answers.preference} href="/quiz/4" />
-                        <SummaryItem label="Propósito" value={answers.purpose} href="/quiz/5" />
-                        <SummaryItem label="Tempo de Deus" value={answers.timing} href="/quiz/6" />
-                        <SummaryItem label="Localização" value={answers.location} href="/quiz/7" />
-                    </div>
-                </AccordionContent>
-            </AccordionItem>
-        </Accordion>
-        
-        <h2 className="text-xl font-bold mt-8 mb-4">Descubra quem está próximo de você</h2>
-        <Button asChild size="lg" className="btn-gradient px-10 py-6 rounded-full shadow-lg text-base">
-            <Link href="#">Encontrar meu par</Link>
-        </Button>
+      <div className="w-full max-w-md space-y-4 mb-12">
+        {analysisSteps.map((step, index) => (
+          <div
+            key={index}
+            className={`flex items-center space-x-4 p-4 rounded-lg transition-all duration-300 ${
+              currentStep > index
+                ? 'bg-green-100 text-green-700'
+                : currentStep === index
+                ? 'bg-accent text-accent-foreground'
+                : 'bg-muted text-muted-foreground'
+            }`}
+          >
+            {currentStep > index ? <CheckCircle className="h-6 w-6" /> : step.icon}
+            <span className="font-medium">{step.text}</span>
+          </div>
+        ))}
+      </div>
+
+      <p className="text-lg text-primary font-semibold">
+        Você está mais perto do que imagina de encontrar alguém especial.
+      </p>
     </div>
   );
 }
