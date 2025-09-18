@@ -14,7 +14,7 @@ export const maleProfiles: MaleProfile[] = [
     age: 34,
     distance: 12,
     description: 'Pastor jovem, apaixonado por evangelizar e servir a comunidade. Busco uma companheira que ame a Deus.',
-    imageUrl: 'https://picsum.photos/seed/mp1/200/200',
+    imageUrl: 'https://i.pinimg.com/736x/db/51/10/db5110fd60f5749bfa445f2f027651c9.jpg',
     imageHint: 'man portrait',
   },
   {

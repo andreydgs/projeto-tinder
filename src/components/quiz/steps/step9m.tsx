@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Heart, MapPin, User } from 'lucide-react';
+import { Heart, Lock, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { maleProfiles, type MaleProfile } from '@/lib/male-profiles';
@@ -12,29 +12,22 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 
 
 const ProfileCard = ({ profile, isLocked }: { profile: MaleProfile, isLocked?: boolean }) => {
-    const [isFavorited, setIsFavorited] = useState(false);
-  
-    const handleFavorite = () => {
-      setIsFavorited(!isFavorited);
-    };
 
   return (
     <Card className="bg-white/10 backdrop-blur-sm border-none rounded-2xl text-white p-4">
       <div className="flex items-center gap-4">
           <div className="relative w-16 h-16 shrink-0">
-             {isLocked ? (
-                <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center">
-                    <User className="w-8 h-8 text-white/50" />
+             <Image
+                src={profile.imageUrl}
+                alt={`Foto de ${profile.name}`}
+                fill
+                className={cn("rounded-full object-cover", isLocked && "blur-md")}
+                data-ai-hint={profile.imageHint}
+            />
+             {isLocked && (
+                <div className="absolute inset-0 w-16 h-16 rounded-full bg-black/30 flex items-center justify-center">
+                    <Lock className="w-6 h-6 text-white" />
                 </div>
-             ) : (
-                <Image
-                    src={profile.imageUrl}
-                    alt={`Foto de ${profile.name}`}
-                    width={64}
-                    height={64}
-                    className="rounded-full object-cover w-16 h-16"
-                    data-ai-hint={profile.imageHint}
-                />
              )}
           </div>
         <div className="flex-grow">
@@ -66,7 +59,7 @@ export default function Step9m() {
                 <div className="text-center mb-6">
                     <Heart className="w-10 h-10 text-primary mx-auto mb-2" fill="hsl(var(--primary))" />
                     <h1 className="text-2xl md:text-3xl font-bold">
-                        Pessoas especiais em Porto Alegre
+                        Pessoas especiais próximas a você
                     </h1>
                     <p className="text-base text-white/80 mt-1">
                         Encontramos perfis que combinam com seus valores e fé.
@@ -83,7 +76,7 @@ export default function Step9m() {
                 
                 <div className="text-center mt-6">
                     <div className="bg-white/10 rounded-xl p-3 text-sm mb-4">
-                        <p>+78 pessoas com seus valores estão esperando por você em Porto Alegre</p>
+                        <p>+78 pessoas com seus valores estão esperando por você</p>
                     </div>
                     <Button asChild size="lg" className="w-full btn-gradient px-10 py-7 rounded-full shadow-lg text-lg">
                         <Link href="#">
