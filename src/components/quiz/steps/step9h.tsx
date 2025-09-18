@@ -8,6 +8,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { femaleProfiles, type FemaleProfile } from '@/lib/female-profiles';
 import { cn } from '@/lib/utils';
 import { ScrollArea } from '@/components/ui/scroll-area';
+import { useQuiz } from '@/contexts/quiz-provider';
 
 
 const ProfileCard = ({ profile, isLocked }: { profile: FemaleProfile, isLocked?: boolean }) => {
@@ -50,6 +51,32 @@ const ProfileCard = ({ profile, isLocked }: { profile: FemaleProfile, isLocked?:
 
 
 export default function Step9h() {
+  const { answers } = useQuiz();
+  const userAge = answers.age || 0;
+
+  const getFilteredProfiles = () => {
+    let minAge: number, maxAge: number;
+
+    if (userAge <= 29) {
+      minAge = 20;
+      maxAge = 40;
+    } else if (userAge >= 30 && userAge <= 49) {
+      minAge = 25;
+      maxAge = 50;
+    } else {
+      minAge = 40;
+      maxAge = 65;
+    }
+
+    const firstProfile = femaleProfiles[0];
+    const otherProfiles = femaleProfiles.slice(1).filter(p => p.age >= minAge && p.age <= maxAge);
+
+    return [firstProfile, ...otherProfiles];
+  }
+
+  const profilesToShow = getFilteredProfiles();
+
+
   return (
     <div className="container mx-auto py-8 sm:py-12 md:py-16">
         <Card className="w-full max-w-2xl mx-auto bg-card border-none shadow-none text-card-foreground">
@@ -66,7 +93,7 @@ export default function Step9h() {
                 
                 <ScrollArea className="h-96 w-full pr-3 mb-6">
                     <div className="space-y-3">
-                        {femaleProfiles.map((profile, index) => (
+                        {profilesToShow.map((profile, index) => (
                             <ProfileCard key={index} profile={profile} isLocked={index > 0} />
                         ))}
                     </div>

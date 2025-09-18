@@ -2,6 +2,7 @@
 
 import { redirect, useParams } from 'next/navigation';
 import { useQuiz } from '@/contexts/quiz-provider';
+import { useEffect, useState } from 'react';
 
 import Step1 from '@/components/quiz/steps/step1';
 import Step2 from '@/components/quiz/steps/step2';
@@ -24,6 +25,21 @@ type QuizPageProps = {
 export default function QuizPage({ params }: QuizPageProps) {
   const { step } = params;
   const { answers } = useQuiz();
+  const [stepToRender, setStepToRender] = useState(step);
+
+  useEffect(() => {
+    if (step === '9') {
+      if (answers.gender === 'Feminino') {
+        setStepToRender('9m');
+      } else if (answers.gender === 'Masculino') {
+        setStepToRender('9h');
+      } else {
+        setStepToRender('9');
+      }
+    } else {
+      setStepToRender(step);
+    }
+  }, [step, answers.gender]);
 
   // Redirect logic for step 9 based on gender
   if (step === '9') {
@@ -36,7 +52,7 @@ export default function QuizPage({ params }: QuizPageProps) {
   }
 
   const renderStep = () => {
-    switch (step) {
+    switch (stepToRender) {
       case '1':
         return <Step1 />;
       case '2':
