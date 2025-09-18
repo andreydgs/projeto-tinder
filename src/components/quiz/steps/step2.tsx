@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useForm } from 'react-hook-form';
@@ -11,7 +12,9 @@ import { Input } from '@/components/ui/input';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
-import { User } from 'lucide-react';
+import { User, MapPin } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { Skeleton } from '@/components/ui/skeleton';
 
 const genderEnum = z.enum(['Masculino', 'Feminino'], { required_error: 'Selecione seu gênero.' });
 
@@ -31,6 +34,31 @@ const genderOptions = [
 export default function Step2() {
   const router = useRouter();
   const { answers, setAnswer } = useQuiz();
+  const [userLocation, setUserLocation] = useState<string | null>(null);
+  const [loadingLocation, setLoadingLocation] = useState(true);
+
+
+  useEffect(() => {
+    async function fetchLocation() {
+      setLoadingLocation(true);
+      try {
+        const response = await fetch('https://ipapi.co/json/');
+        if (!response.ok) {
+          throw new Error('Failed to fetch location');
+        }
+        const data = await response.json();
+        setUserLocation(`${data.city}, ${data.country_name}`);
+      } catch (error) {
+        console.error("Error fetching user's location:", error);
+        // Don't set a message on error, just hide the component
+        setUserLocation(null);
+      } finally {
+        setLoadingLocation(false);
+      }
+    }
+
+    fetchLocation();
+  }, []);
 
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
@@ -83,6 +111,19 @@ export default function Step2() {
                 </FormItem>
               )}
             />
+
+            <div className="space-y-2">
+                {loadingLocation && <Skeleton className="h-12 w-full" />}
+                {!loadingLocation && userLocation && (
+                    <div className="bg-accent/50 border border-accent rounded-lg p-3 text-center text-sm text-accent-foreground">
+                        <p className="font-semibold flex items-center justify-center gap-2">
+                           <MapPin className="h-4 w-4" /> Detectamos que você está em {userLocation}
+                        </p>
+                        <p className="text-xs">Há cristãos perto de você... Vamos buscar quem está próximo e compartilha da mesma fé.</p>
+                    </div>
+                )}
+            </div>
+
             <FormField
               control={form.control}
               name="gender"
