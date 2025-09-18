@@ -9,16 +9,16 @@ import { Coffee, UtensilsCrossed, Music, BookOpen, Camera, Gamepad2, Dumbbell, P
 import { useToast } from '@/hooks/use-toast';
 
 const interests = [
-    { name: 'Café', icon: <Coffee className="h-8 w-8" /> },
-    { name: 'Chá', icon: <Coffee className="h-8 w-8" /> },
-    { name: 'Comida', icon: <UtensilsCrossed className="h-8 w-8" /> },
-    { name: 'Música', icon: <Music className="h-8 w-8" /> },
-    { name: 'Leitura', icon: <BookOpen className="h-8 w-8" /> },
-    { name: 'Fotografia', icon: <Camera className="h-8 w-8" /> },
-    { name: 'Jogos', icon: <Gamepad2 className="h-8 w-8" /> },
-    { name: 'Exercícios', icon: <Dumbbell className="h-8 w-8" /> },
-    { name: 'Viagens', icon: <Plane className="h-8 w-8" /> },
-    { name: 'Arte', icon: <Palette className="h-8 w-8" /> },
+    { name: 'Café', icon: <Coffee className="h-6 w-6" /> },
+    { name: 'Chá', icon: <Coffee className="h-6 w-6" /> },
+    { name: 'Comida', icon: <UtensilsCrossed className="h-6 w-6" /> },
+    { name: 'Música', icon: <Music className="h-6 w-6" /> },
+    { name: 'Leitura', icon: <BookOpen className="h-6 w-6" /> },
+    { name: 'Fotografia', icon: <Camera className="h-6 w-6" /> },
+    { name: 'Jogos', icon: <Gamepad2 className="h-6 w-6" /> },
+    { name: 'Exercícios', icon: <Dumbbell className="h-6 w-6" /> },
+    { name: 'Viagens', icon: <Plane className="h-6 w-6" /> },
+    { name: 'Arte', icon: <Palette className="h-6 w-6" /> },
 ];
 
 export default function Step3() {
@@ -51,17 +51,17 @@ export default function Step3() {
 
   return (
     <Card className="border-none shadow-none">
-      <CardHeader className="text-center">
-        <CardTitle className="text-2xl font-bold">Quais são seus interesses?</CardTitle>
+      <CardHeader className="text-center px-0">
+        <CardTitle className="text-xl font-bold">Quais são seus interesses?</CardTitle>
         <CardDescription>Selecione o que você gosta de fazer. Escolha no mínimo 3.</CardDescription>
       </CardHeader>
-      <CardContent>
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-8">
+      <CardContent className="p-0">
+        <div className="grid grid-cols-3 gap-2 mb-4">
           {interests.map((interest) => (
             <Button
               key={interest.name}
               variant={selectedInterests.includes(interest.name) ? 'default' : 'outline'}
-              className="h-24 flex flex-col items-center justify-center space-y-2 whitespace-normal p-4 text-center"
+              className="h-20 flex flex-col items-center justify-center space-y-1 whitespace-normal p-2 text-center text-xs"
               onClick={() => handleSelectInterest(interest.name)}
             >
               {interest.icon}
@@ -69,11 +69,11 @@ export default function Step3() {
             </Button>
           ))}
         </div>
-        <div className="text-center mb-8 text-muted-foreground">
+        <div className="text-center mb-4 text-muted-foreground">
           <p>Selecionados: {selectedInterests.length}</p>
         </div>
-        <div className="flex justify-center pt-4">
-          <Button onClick={handleSubmit} size="lg" className="btn-gradient px-12 py-8 rounded-full shadow-lg text-lg">
+        <div className="flex justify-center">
+          <Button onClick={handleSubmit} size="lg" className="btn-gradient px-10 py-6 rounded-full shadow-lg text-lg">
             Continuar
           </Button>
         </div>

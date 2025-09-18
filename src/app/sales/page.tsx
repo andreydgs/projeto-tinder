@@ -62,243 +62,223 @@ export default function SalesPage() {
           </div>
         </header>
 
-      <main className="container mx-auto px-4 py-8 md:py-12">
+      <main className="container mx-auto px-4 py-6 md:py-10">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
-          <section className="text-center mb-10">
-            <div className="inline-block bg-destructive/10 text-destructive font-semibold rounded-full px-4 py-2 mb-4">
+          <section className="text-center mb-8">
+            <div className="inline-block bg-destructive/10 text-destructive font-semibold rounded-full px-3 py-1 text-sm mb-3">
               🚨 Oferta Exclusiva
             </div>
-            <p className="text-lg font-medium mb-4">
+            <p className="text-base font-medium mb-3">
               ⏳ Tempo restante: <CountdownTimer />
             </p>
-            <h1 className="text-3xl md:text-4xl font-bold mb-3">
+            <h1 className="text-2xl md:text-4xl font-bold mb-2">
               Entre Hoje e Garanta Seu Desconto Exclusivo!
             </h1>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-base md:text-lg text-muted-foreground">
               🙏 Você está a um passo de viver o amor que Deus preparou para você.
-            </p>
-            <p className="max-w-3xl mx-auto mt-2">
-              Nossa comunidade exclusiva conecta milhares de solteiros cristãos em todo o Brasil que, assim como você, buscam um relacionamento sério baseado na fé e nos valores do Reino.
             </p>
           </section>
 
           {/* Good News */}
-          <div className="bg-green-100 text-green-800 rounded-lg p-4 text-center font-semibold text-lg mb-10">
+          <div className="bg-green-100 text-green-800 rounded-lg p-3 text-center font-semibold text-base mb-8">
             💡 Boa notícia: 37 pessoas com seus valores estão online em {userLocation}.
           </div>
 
           {/* Community Section */}
-          <section className="text-center mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold mb-2">Nossa Comunidade</h2>
-            <p className="text-muted-foreground mb-8">
-              Um espaço acolhedor, organizado e seguro, criado para facilitar conexões com base na fé, respeito e propósito em diferentes fases da vida.
+          <section className="text-center mb-10">
+            <h2 className="text-xl md:text-3xl font-bold mb-2">Nossa Comunidade</h2>
+            <p className="text-muted-foreground text-sm mb-6">
+              Um espaço acolhedor, organizado e seguro para conexões com base na fé.
             </p>
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-3 gap-4">
               <Card className="text-center">
-                <CardHeader>
-                  <Heart className="mx-auto h-10 w-10 text-red-400" />
-                  <CardTitle>Chat Jovens</CardTitle>
-                  <CardDescription>(19 a 39 anos)</CardDescription>
+                <CardHeader className="p-4">
+                  <Heart className="mx-auto h-8 w-8 text-red-400" />
+                  <CardTitle className="text-base">Chat Jovens</CardTitle>
+                  <CardDescription className="text-xs">(19 a 39 anos)</CardDescription>
                 </CardHeader>
-                <CardContent>
-                  <p>Conexões leves, trocas sinceras e relacionamentos com propósito.</p>
-                </CardContent>
               </Card>
               <Card className="text-center">
-                <CardHeader>
-                  <Users className="mx-auto h-10 w-10 text-blue-400" />
-                  <CardTitle>Chat Adultos</CardTitle>
-                  <CardDescription>(40 a 59 anos)</CardDescription>
+                <CardHeader className="p-4">
+                  <Users className="mx-auto h-8 w-8 text-blue-400" />
+                  <CardTitle className="text-base">Chat Adultos</CardTitle>
+                  <CardDescription className="text-xs">(40 a 59 anos)</CardDescription>
                 </CardHeader>
-                <CardContent>
-                  <p>Conversas conscientes, experiências de vida e relacionamentos edificantes.</p>
-                </CardContent>
               </Card>
               <Card className="text-center">
-                <CardHeader>
-                  <Accessibility className="mx-auto h-10 w-10 text-green-400" />
-                  <CardTitle>Chat Sêniores</CardTitle>
-                  <CardDescription>(60+)</CardDescription>
+                <CardHeader className="p-4">
+                  <Accessibility className="mx-auto h-8 w-8 text-green-400" />
+                  <CardTitle className="text-base">Chat Sêniores</CardTitle>
+                  <CardDescription className="text-xs">(60+)</CardDescription>
                 </CardHeader>
-                <CardContent>
-                  <p>Sabedoria, fé e novas possibilidades para viver o amor com maturidade.</p>
-                </CardContent>
               </Card>
             </div>
           </section>
 
           {/* Intentional Interactions */}
-          <section className="mb-12">
-             <div className="text-center mb-8">
-                <h2 className="text-2xl md:text-3xl font-bold mb-2">💖 Interações com Intenção</h2>
-                <p className="text-muted-foreground">Antes de iniciar uma conversa privada, sinalize sua intenção com um coração. Isso ajuda a manter as conexões respeitosas e com propósito.</p>
+          <section className="mb-10">
+             <div className="text-center mb-6">
+                <h2 className="text-xl md:text-3xl font-bold mb-2">💖 Interações com Intenção</h2>
+                <p className="text-muted-foreground text-sm">Sinalize sua intenção com um coração para manter as conexões respeitosas.</p>
              </div>
-             <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-                <div className="flex items-center gap-3 bg-muted p-3 rounded-lg"><Heart className="h-6 w-6 text-red-500 fill-red-500" /> Aberto(a) a um relacionamento sério com base na fé</div>
-                <div className="flex items-center gap-3 bg-muted p-3 rounded-lg"><Heart className="h-6 w-6 text-blue-500 fill-blue-500" /> Conversa com propósito e trocas significativas</div>
-                <div className="flex items-center gap-3 bg-muted p-3 rounded-lg"><Heart className="h-6 w-6 text-green-500 fill-green-500" /> Disponível para ser chamado no privado</div>
-                <div className="flex items-center gap-3 bg-muted p-3 rounded-lg"><Lock className="h-5 w-5 text-gray-500" /> Apenas observando a comunidade por enquanto</div>
+             <div className="grid sm:grid-cols-2 gap-3 text-xs">
+                <div className="flex items-center gap-2 bg-muted p-2 rounded-lg"><Heart className="h-5 w-5 text-red-500 fill-red-500" /> Aberto(a) a um relacionamento sério</div>
+                <div className="flex items-center gap-2 bg-muted p-2 rounded-lg"><Heart className="h-5 w-5 text-blue-500 fill-blue-500" /> Conversa com propósito</div>
+                <div className="flex items-center gap-2 bg-muted p-2 rounded-lg"><Heart className="h-5 w-5 text-green-500 fill-green-500" /> Disponível para privado</div>
+                <div className="flex items-center gap-2 bg-muted p-2 rounded-lg"><Lock className="h-4 w-4 text-gray-500" /> Apenas observando</div>
              </div>
           </section>
 
           {/* Our Commitment & Testimonial */}
-           <section className="grid md:grid-cols-2 gap-10 items-center mb-12">
+           <section className="grid md:grid-cols-2 gap-8 items-center mb-10">
               <div>
-                <h2 className="text-2xl md:text-3xl font-bold mb-4">Nosso Compromisso</h2>
-                <p className="text-muted-foreground mb-6">Criar um ambiente cristão seguro e acolhedor, onde conexões são construídas com autenticidade, fé e propósito.</p>
-                <ul className="space-y-3">
-                    <li className="flex items-center gap-3"><CheckCircle className="h-5 w-5 text-primary" /> Relacionamentos com intenção e direção espiritual</li>
-                    <li className="flex items-center gap-3"><CheckCircle className="h-5 w-5 text-primary" /> Trocas significativas com pessoas alinhadas na fé</li>
-                    <li className="flex items-center gap-3"><CheckCircle className="h-5 w-5 text-primary" /> Novas formas de enxergar o amor e o propósito</li>
-                    <li className="flex items-center gap-3"><CheckCircle className="h-5 w-5 text-primary" /> Espaço para crescer espiritualmente e emocionalmente</li>
+                <h2 className="text-xl md:text-3xl font-bold mb-3">Nosso Compromisso</h2>
+                <p className="text-muted-foreground mb-4 text-sm">Criar um ambiente cristão seguro onde conexões são construídas com autenticidade, fé e propósito.</p>
+                <ul className="space-y-2 text-sm">
+                    <li className="flex items-center gap-3"><CheckCircle className="h-4 w-4 text-primary" /> Relacionamentos com intenção</li>
+                    <li className="flex items-center gap-3"><CheckCircle className="h-4 w-4 text-primary" /> Trocas significativas com pessoas de fé</li>
+                    <li className="flex items-center gap-3"><CheckCircle className="h-4 w-4 text-primary" /> Crescimento espiritual e emocional</li>
                 </ul>
               </div>
-              <div className="bg-secondary p-6 rounded-lg">
-                <MessageCircle className="h-8 w-8 text-secondary-foreground mb-4" />
-                <p className="text-lg italic mb-4">"Encontrei meu noivo aqui! Depois de anos em apps vazios, finalmente achei alguém que compartilha minha fé ❤️"</p>
-                <div className="flex items-center gap-4">
-                  <Image src="https://i.imgur.com/3qV0WxN.jpeg" alt="Foto de Ana Carolina" width={50} height={50} className="rounded-full" />
+              <div className="bg-secondary p-4 rounded-lg">
+                <MessageCircle className="h-6 w-6 text-secondary-foreground mb-2" />
+                <p className="text-base italic mb-3">"Encontrei meu noivo aqui! Finalmente achei alguém que compartilha minha fé ❤️"</p>
+                <div className="flex items-center gap-3">
+                  <Image src="https://i.imgur.com/3qV0WxN.jpeg" alt="Foto de Ana Carolina" width={40} height={40} className="rounded-full" />
                   <div>
-                    <p className="font-bold">Ana Carolina, 28 anos</p>
-                    <p className="text-sm text-muted-foreground">São Paulo, SP</p>
+                    <p className="font-bold text-sm">Ana Carolina, 28 anos</p>
+                    <p className="text-xs text-muted-foreground">São Paulo, SP</p>
                   </div>
                 </div>
               </div>
           </section>
           
-          <div className="flex flex-wrap justify-center gap-6 text-center mb-12">
+          <div className="flex justify-around text-center mb-10">
             <div>
-              <p className="text-3xl font-bold text-primary">+12.847</p>
-              <p className="text-muted-foreground">membros ativos em todo o Brasil</p>
+              <p className="text-2xl font-bold text-primary">+12.8K</p>
+              <p className="text-muted-foreground text-xs">membros ativos</p>
             </div>
             <div>
-              <p className="text-3xl font-bold text-primary">2.394</p>
-              <p className="text-muted-foreground">relacionamentos iniciados na comunidade</p>
+              <p className="text-2xl font-bold text-primary">2.3K</p>
+              <p className="text-muted-foreground text-xs">relacionamentos</p>
             </div>
           </div>
 
 
           {/* Pricing Section */}
-          <section className="mb-12">
-            <div className="grid md:grid-cols-3 gap-6 items-start">
+          <section className="mb-10">
+            <div className="grid md:grid-cols-3 gap-4 items-start">
               {/* Monthly Plan */}
               <Card>
-                <CardHeader>
-                  <CardTitle>🔹 Acesso Mensal</CardTitle>
-                  <CardDescription>Conheça pessoas incríveis que buscam relacionamento com propósito</CardDescription>
+                <CardHeader className="p-4">
+                  <CardTitle className="text-base">🔹 Acesso Mensal</CardTitle>
+                  <CardDescription className="text-xs">Conheça pessoas com propósito</CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-4">
+                <CardContent className="space-y-3 p-4 pt-0">
                   <div className="text-center">
-                    <p className="line-through text-muted-foreground">R$ 49,90</p>
-                    <p className="text-3xl font-bold">R$ 19,96</p>
-                    <p className="text-sm text-muted-foreground">por 30 dias</p>
+                    <p className="line-through text-muted-foreground text-sm">R$ 49,90</p>
+                    <p className="text-2xl font-bold">R$ 19,96</p>
                   </div>
-                  <ul className="space-y-2 text-sm">
-                    <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-green-500" /> Acesso a todos os chats por idade</li>
-                    <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-green-500" /> Sistema de conexão por corações</li>
-                    <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-green-500" /> Conversa privada liberada</li>
+                  <ul className="space-y-1 text-xs">
+                    <li className="flex items-center gap-2"><CheckCircle className="h-3 w-3 text-green-500" /> Acesso aos chats</li>
+                    <li className="flex items-center gap-2"><CheckCircle className="h-3 w-3 text-green-500" /> Conexão por corações</li>
+                    <li className="flex items-center gap-2"><CheckCircle className="h-3 w-3 text-green-500" /> Conversa privada</li>
                   </ul>
-                  <Button asChild className="w-full btn-gradient"><Link href="#">Quero Fazer Parte Agora</Link></Button>
+                  <Button asChild className="w-full btn-gradient text-sm h-9"><Link href="#">Quero Fazer Parte</Link></Button>
                 </CardContent>
               </Card>
 
               {/* Annual Plan */}
               <Card className="border-primary border-2 relative">
-                 <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-sm font-semibold px-3 py-1 rounded-full">MAIS POPULAR</div>
-                <CardHeader>
-                  <CardTitle>🔸 Acesso Anual</CardTitle>
-                  <CardDescription>12 meses de conexões e oportunidades para viver um relacionamento cristão</CardDescription>
+                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-xs font-semibold px-2 py-0.5 rounded-full">MAIS POPULAR</div>
+                <CardHeader className="p-4">
+                  <CardTitle className="text-base">🔸 Acesso Anual</CardTitle>
+                  <CardDescription className="text-xs">12 meses de conexões cristãs</CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-4">
+                <CardContent className="space-y-3 p-4 pt-0">
                   <div className="text-center">
-                    <p className="line-through text-muted-foreground">R$ 214,90</p>
-                    <p className="text-3xl font-bold">R$ 27,94</p>
-                    <p className="text-sm text-muted-foreground">por 12 meses</p>
+                    <p className="line-through text-muted-foreground text-sm">R$ 214,90</p>
+                    <p className="text-2xl font-bold">R$ 27,94</p>
                   </div>
-                  <ul className="space-y-2 text-sm">
-                    <li className="flex items-center gap-2 font-bold text-primary"><BadgeCheck className="h-4 w-4" /> Economia de 87%</li>
-                    <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-green-500" /> Acesso a todos os chats por idade</li>
-                    <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-green-500" /> Sistema de conexão por corações</li>
-                    <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-green-500" /> Suporte</li>
+                  <ul className="space-y-1 text-xs">
+                    <li className="flex items-center gap-2 font-bold text-primary"><BadgeCheck className="h-3 w-3" /> Economia de 87%</li>
+                    <li className="flex items-center gap-2"><CheckCircle className="h-3 w-3 text-green-500" /> Acesso aos chats</li>
+                    <li className="flex items-center gap-2"><CheckCircle className="h-3 w-3 text-green-500" /> Conexão por corações</li>
+                    <li className="flex items-center gap-2"><CheckCircle className="h-3 w-3 text-green-500" /> Suporte</li>
                   </ul>
-                  <Button asChild className="w-full btn-gradient"><Link href="#">Escolha Inteligente</Link></Button>
+                  <Button asChild className="w-full btn-gradient text-sm h-9"><Link href="#">Escolha Inteligente</Link></Button>
                 </CardContent>
               </Card>
 
               {/* Lifetime Plan */}
               <Card>
-                 <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-green-600 text-white text-sm font-semibold px-3 py-1 rounded-full">Melhor Escolha!</div>
-                <CardHeader>
-                  <CardTitle>🔰 Acesso Vitalício</CardTitle>
-                  <CardDescription>🔒 Acesso para sempre + 🎁 Ebook cristão: “Como Superar Traumas de Relacionamentos Passados”</CardDescription>
+                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-green-600 text-white text-xs font-semibold px-2 py-0.5 rounded-full">Melhor Escolha!</div>
+                <CardHeader className="p-4">
+                  <CardTitle className="text-base">🔰 Acesso Vitalício</CardTitle>
+                  <CardDescription className="text-xs">Acesso para sempre + Ebook</CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-4">
+                <CardContent className="space-y-3 p-4 pt-0">
                   <div className="text-center">
-                    <p className="line-through text-muted-foreground">R$ 214,90</p>
-                    <p className="text-3xl font-bold">R$ 57,90</p>
-                    <p className="text-sm text-muted-foreground">pagamento único</p>
+                    <p className="line-through text-muted-foreground text-sm">R$ 214,90</p>
+                    <p className="text-2xl font-bold">R$ 57,90</p>
                   </div>
-                   <ul className="space-y-2 text-sm">
-                    <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-green-500" /> Acesso vitalício completo</li>
-                    <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-green-500" /> eBook exclusivo (R$ 47,90)</li>
-                     <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-green-500" /> Acesso a todos os chats por idade</li>
-                    <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-green-500" /> Sistema de conexão por corações</li>
-                    <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-green-500" /> Suporte VIP vitalício</li>
+                   <ul className="space-y-1 text-xs">
+                    <li className="flex items-center gap-2"><CheckCircle className="h-3 w-3 text-green-500" /> Acesso vitalício</li>
+                    <li className="flex items-center gap-2"><CheckCircle className="h-3 w-3 text-green-500" /> eBook exclusivo</li>
+                    <li className="flex items-center gap-2"><CheckCircle className="h-3 w-3 text-green-500" /> Todos os benefícios</li>
+                    <li className="flex items-center gap-2"><CheckCircle className="h-3 w-3 text-green-500" /> Suporte VIP</li>
                   </ul>
-                  <Button asChild className="w-full btn-gradient"><Link href="#">🎁 Melhor Escolha!</Link></Button>
+                  <Button asChild className="w-full btn-gradient text-sm h-9"><Link href="#">🎁 Melhor Escolha!</Link></Button>
                 </CardContent>
               </Card>
             </div>
           </section>
           
            {/* Who is this for Section */}
-          <section className="bg-secondary rounded-lg p-8 mb-12">
-            <h2 className="text-2xl font-bold text-center mb-6">💝 Essa comunidade é para você se...</h2>
-            <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-4">
-              <li className="flex items-start gap-3"><Heart className="h-5 w-5 text-primary mt-1 shrink-0" /> Você busca um relacionamento com propósito e fundamentado na fé</li>
-              <li className="flex items-start gap-3"><Heart className="h-5 w-5 text-primary mt-1 shrink-0" /> Está cansado(a) de apps rasos que não levam a nada sério</li>
-              <li className="flex items-start gap-3"><Heart className="h-5 w-5 text-primary mt-1- shrink-0" /> Quer conhecer alguém que compartilhe os mesmos valores cristãos</li>
-              <li className="flex items-start gap-3"><Heart className="h-5 w-5 text-primary mt-1 shrink-0" /> Acredita que Deus tem alguém especial preparado para você</li>
-              <li className="flex items-start gap-3"><Heart className="h-5 w-5 text-primary mt-1 shrink-0" /> Deseja fazer parte de uma comunidade séria e comprometida</li>
+          <section className="bg-secondary rounded-lg p-6 mb-10">
+            <h2 className="text-lg font-bold text-center mb-4">💝 Essa comunidade é para você se...</h2>
+            <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-3 text-sm">
+              <li className="flex items-start gap-2"><Heart className="h-4 w-4 text-primary mt-0.5 shrink-0" /> Busca um relacionamento com propósito</li>
+              <li className="flex items-start gap-2"><Heart className="h-4 w-4 text-primary mt-0.5 shrink-0" /> Cansado(a) de apps rasos</li>
+              <li className="flex items-start gap-2"><Heart className="h-4 w-4 text-primary mt-0.5 shrink-0" /> Quer alguém com mesmos valores</li>
+              <li className="flex items-start gap-2"><Heart className="h-4 w-4 text-primary mt-0.5 shrink-0" /> Acredita no tempo de Deus</li>
             </ul>
           </section>
 
           {/* Final CTA */}
-          <section className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-2">💖 Sua nova história pode começar agora</h2>
-            <p className="bg-green-100 text-green-800 rounded-full px-4 py-2 mb-4 inline-block">✅ 65 pessoas estão online agora — alguém pode estar esperando por você.</p>
-            <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">Milhares de pessoas como você já transformaram suas vidas. Não deixe a felicidade passar por você!</p>
-            <Button asChild size="lg" className="btn-gradient text-lg px-12 py-8 rounded-full shadow-lg"><Link href="#">Entrar Agora</Link></Button>
+          <section className="text-center mb-10">
+            <h2 className="text-xl font-bold mb-2">💖 Sua nova história pode começar agora</h2>
+            <p className="bg-green-100 text-green-800 rounded-full px-3 py-1 mb-4 inline-block text-sm">✅ 65 pessoas online agora</p>
+            <p className="text-muted-foreground mb-6 max-w-2xl mx-auto text-sm">Milhares de pessoas como você já transformaram suas vidas. Não deixe a felicidade passar!</p>
+            <Button asChild size="lg" className="btn-gradient text-base px-10 py-6 rounded-full shadow-lg"><Link href="#">Entrar Agora</Link></Button>
           </section>
 
           {/* FAQ */}
-          <section className="max-w-2xl mx-auto mb-12">
+          <section className="max-w-2xl mx-auto mb-10">
              <Accordion type="single" collapsible className="w-full">
                 <AccordionItem value="item-1">
-                    <AccordionTrigger>COMO VOU RECEBER O ACESSO?</AccordionTrigger>
-                    <AccordionContent>
-                    O acesso à comunidade será enviado diretamente para seu e-mail após a confirmação de pagamento. Verifique sua caixa de spam, o link pode estar lá. Caso tenha dificuldade, entre em contato pelo Instagram ou por e-mail. Por favor, aguarde que logo você será respondido! @namoradoscristao
+                    <AccordionTrigger className="text-sm">COMO VOU RECEBER O ACESSO?</AccordionTrigger>
+                    <AccordionContent className="text-sm">
+                    O acesso à comunidade será enviado para seu e-mail após a confirmação de pagamento. Verifique sua caixa de spam. Em caso de dificuldade, contate-nos em @namoradoscristao.
                     </AccordionContent>
                 </AccordionItem>
                 <AccordionItem value="item-2">
-                    <AccordionTrigger>A COMUNIDADE É SEGURA?</AccordionTrigger>
-                    <AccordionContent>
-                    Sim! A segurança e o bem-estar de todos os membros da nossa comunidade Tinder Gospel são prioridade. Estamos sempre atentos, monitorando com responsabilidade cada interação para garantir um espaço respeitoso, saudável e cristão. 🛡️ Contamos com uma equipe que acompanha e orienta os participantes, cuidando para que o ambiente seja acolhedor, verdadeiro e guiado por princípios cristãos. Aqui, você pode se conectar com tranquilidade, sabendo que está em um lugar onde o amor é levado a sério — com fé, respeito e intenção. ❤️✝️
+                    <AccordionTrigger className="text-sm">A COMUNIDADE É SEGURA?</AccordionTrigger>
+                    <AccordionContent className="text-sm">
+                    Sim! A segurança é nossa prioridade. Monitoramos as interações para garantir um espaço respeitoso e cristão, com uma equipe dedicada para orientar e cuidar do bem-estar de todos.
                     </AccordionContent>
                 </AccordionItem>
             </Accordion>
           </section>
 
           {/* Security Footer */}
-          <section className="text-center text-sm text-muted-foreground">
-             <div className="flex justify-center items-center gap-4 mb-2">
-                <ShieldCheck className="h-5 w-5" />
+          <section className="text-center text-xs text-muted-foreground">
+             <div className="flex justify-center items-center gap-3 mb-2">
+                <ShieldCheck className="h-4 w-4" />
                 <span>100% Seguro</span>
-                <ShieldCheck className="h-5 w-5" />
+                <ShieldCheck className="h-4 w-4" />
                 <span>Privacidade Garantida</span>
-                <ShieldCheck className="h-5 w-5" />
-                <span>Suporte 24h</span>
              </div>
              <p>Seus dados estão protegidos. Transação processada por ambiente seguro.</p>
           </section>

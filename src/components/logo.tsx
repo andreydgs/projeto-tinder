@@ -5,8 +5,8 @@ export function Logo() {
     <Image
       src="https://i.imgur.com/zLYYCsd.png"
       alt="Divine Match Logo"
-      width={180}
-      height={45}
+      width={160}
+      height={40}
       priority
     />
   );

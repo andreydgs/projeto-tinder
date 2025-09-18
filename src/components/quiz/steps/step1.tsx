@@ -16,22 +16,22 @@ export default function Step1() {
   }, [clearAnswers]);
 
   return (
-    <div className="text-center p-4 flex flex-col items-center justify-center min-h-[60vh]">
+    <div className="text-center p-4 flex flex-col items-center justify-center">
       <Image
         src="https://i.imgur.com/ImLy2t6.png"
         alt="Couple illustration"
-        width={256}
-        height={256}
-        className="mb-8"
+        width={200}
+        height={200}
+        className="mb-6"
         data-ai-hint="couple illustration"
       />
-      <h1 className="text-3xl md:text-5xl font-bold font-headline mb-4 text-foreground leading-tight">
+      <h1 className="text-2xl md:text-4xl font-bold font-headline mb-4 text-foreground leading-tight">
         Acredite, Deus tem alguém reservado para você.
       </h1>
-      <p className="text-lg text-muted-foreground mb-8 max-w-lg">
+      <p className="text-base text-muted-foreground mb-6 max-w-lg">
         Responda algumas perguntas para encontrarmos a pessoa ideal para você com base na fé e nos valores que importam.
       </p>
-      <Button asChild size="lg" className="btn-gradient text-lg px-12 py-8 rounded-full shadow-lg">
+      <Button asChild size="lg" className="btn-gradient text-lg px-12 py-7 rounded-full shadow-lg">
         <Link href="/quiz/2">Começar</Link>
       </Button>
     </div>

@@ -64,8 +64,8 @@ export default function Step7() {
 
   return (
     <Card className="border-none shadow-none">
-      <CardHeader className="text-center">
-        <CardTitle className="text-2xl font-bold">Está aberto a se conectar com alguém da sua região?</CardTitle>
+      <CardHeader className="text-center px-0">
+        <CardTitle className="text-xl font-bold">Aberto a se conectar com alguém da sua região?</CardTitle>
         <CardDescription className="flex items-center justify-center gap-2">
             {loadingLocation ? (
               <Skeleton className="h-5 w-48" />
@@ -76,13 +76,13 @@ export default function Step7() {
             )}
         </CardDescription>
       </CardHeader>
-      <CardContent>
-          <div className="grid grid-cols-1 gap-4 mb-8">
+      <CardContent className="p-0">
+          <div className="grid grid-cols-1 gap-3 mb-6">
             {locationOptions.map((option) => (
               <Button
                 key={option}
                 variant={selectedLocation === option ? 'default' : 'outline'}
-                className="text-md h-auto min-h-16 w-full whitespace-normal p-4 justify-center text-center"
+                className="text-sm h-auto min-h-14 w-full whitespace-normal p-3 justify-center text-center"
                 onClick={() => handleSelect(option)}
               >
                 {option}
@@ -90,8 +90,8 @@ export default function Step7() {
             ))}
           </div>
 
-        <div className="flex justify-center pt-4">
-          <Button onClick={handleSubmit} size="lg" className="btn-gradient px-12 py-8 rounded-full shadow-lg text-lg">
+        <div className="flex justify-center">
+          <Button onClick={handleSubmit} size="lg" className="btn-gradient px-10 py-6 rounded-full shadow-lg text-lg">
             Analisar Perfil
           </Button>
         </div>

@@ -27,8 +27,8 @@ const formSchema = z.object({
 type FormData = z.infer<typeof formSchema>;
 
 const genderOptions = [
-  { value: 'Masculino', icon: <User className="h-8 w-8" /> },
-  { value: 'Feminino', icon: <User className="h-8 w-8" /> },
+  { value: 'Masculino', icon: <User className="h-6 w-6" /> },
+  { value: 'Feminino', icon: <User className="h-6 w-6" /> },
 ];
 
 export default function Step2() {
@@ -78,13 +78,13 @@ export default function Step2() {
 
   return (
     <Card className="border-none shadow-none">
-      <CardHeader className="text-center">
-        <CardTitle className="text-2xl font-bold">Conte-nos sobre você</CardTitle>
-        <CardDescription>Preencha seu perfil para ver se existem conexões reais e cristãs perto de você.</CardDescription>
+      <CardHeader className="text-center px-0">
+        <CardTitle className="text-xl font-bold">Conte-nos sobre você</CardTitle>
+        <CardDescription>Preencha seu perfil para vermos quem está perto de você.</CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="p-0">
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
             <FormField
               control={form.control}
               name="name"
@@ -141,7 +141,7 @@ export default function Step2() {
                           <FormControl>
                             <RadioGroupItem value={option.value} id={option.value} className="sr-only peer"/>
                           </FormControl>
-                           <Label htmlFor={option.value} className="flex flex-col items-center justify-center space-y-2 rounded-md border-2 border-muted bg-popover p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary h-24 cursor-pointer">
+                           <Label htmlFor={option.value} className="flex flex-col items-center justify-center space-y-2 rounded-md border-2 border-muted bg-popover p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary h-20 cursor-pointer">
                             {option.icon}
                             <span className="font-semibold">{option.value}</span>
                           </Label>
@@ -153,8 +153,8 @@ export default function Step2() {
                 </FormItem>
               )}
             />
-            <div className="flex justify-center pt-4">
-              <Button type="submit" size="lg" className="btn-gradient px-12 py-8 rounded-full shadow-lg text-lg">
+            <div className="flex justify-center pt-2">
+              <Button type="submit" size="lg" className="btn-gradient px-10 py-6 rounded-full shadow-lg text-lg">
                 Continuar
               </Button>
             </div>

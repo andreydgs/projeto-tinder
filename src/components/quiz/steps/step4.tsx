@@ -59,31 +59,31 @@ export default function Step4() {
 
   return (
     <Card className="border-none shadow-none">
-      <CardHeader className="text-center">
+      <CardHeader className="text-center px-0">
           {loading ? (
              <Skeleton className="h-8 w-3/4 mx-auto" />
           ) : (
-             <CardTitle className="text-2xl font-bold">
-                Perfeito, {firstName}! Agora nos conte o que você mais valoriza em um relacionamento
+             <CardTitle className="text-xl font-bold">
+                Perfeito, {firstName}! O que você mais valoriza?
              </CardTitle>
           )}
-        <CardDescription>Sua resposta nos ajuda a encontrar o par perfeito para você.</CardDescription>
+        <CardDescription>Sua resposta nos ajuda a encontrar o par perfeito.</CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="p-0">
         {loading ? (
-          <div className="space-y-4">
-            <Skeleton className="h-16 w-full rounded-lg" />
-            <Skeleton className="h-16 w-full rounded-lg" />
-            <Skeleton className="h-16 w-full rounded-lg" />
-            <Skeleton className="h-16 w-full rounded-lg" />
+          <div className="space-y-2">
+            <Skeleton className="h-14 w-full rounded-lg" />
+            <Skeleton className="h-14 w-full rounded-lg" />
+            <Skeleton className="h-14 w-full rounded-lg" />
+            <Skeleton className="h-14 w-full rounded-lg" />
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
             {preferenceOptions.map((option) => (
               <Button
                 key={option}
                 variant={selectedPreference === option ? 'default' : 'outline'}
-                className="text-md h-auto min-h-16 w-full whitespace-normal p-4 justify-center text-center"
+                className="text-sm h-auto min-h-14 w-full whitespace-normal p-3 justify-center text-center"
                 onClick={() => handleSelect(option)}
               >
                 {option}
@@ -92,8 +92,8 @@ export default function Step4() {
           </div>
         )}
 
-        <div className="flex justify-center pt-4">
-          <Button onClick={handleSubmit} disabled={loading} size="lg" className="btn-gradient px-12 py-8 rounded-full shadow-lg text-lg">
+        <div className="flex justify-center">
+          <Button onClick={handleSubmit} disabled={loading} size="lg" className="btn-gradient px-10 py-6 rounded-full shadow-lg text-lg">
             Continuar
           </Button>
         </div>
