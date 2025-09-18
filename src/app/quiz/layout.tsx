@@ -10,14 +10,6 @@ export default function QuizLayout({ children }: { children: ReactNode }) {
   const pathname = usePathname();
   const isMatchPage = pathname === '/quiz/9m';
 
-  if (isMatchPage) {
-    return (
-       <QuizProvider>
-         {children}
-       </QuizProvider>
-    );
-  }
-
   return (
     <QuizProvider>
       <div className="flex flex-col min-h-screen bg-background">
@@ -26,7 +18,7 @@ export default function QuizLayout({ children }: { children: ReactNode }) {
             <div className="flex justify-center">
               <Logo />
             </div>
-            <QuizProgressBar />
+            {!isMatchPage && <QuizProgressBar />}
           </div>
         </header>
         <main className="flex-grow">
