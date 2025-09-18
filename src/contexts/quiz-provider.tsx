@@ -10,6 +10,7 @@ export interface QuizAnswers {
   gender?: string;
   interests?: string[];
   preference?: string;
+  purpose?: string;
 }
 
 // Define the context shape

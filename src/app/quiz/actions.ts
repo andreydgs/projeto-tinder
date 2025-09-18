@@ -12,6 +12,9 @@ export async function getAiQuestion(answers: QuizAnswers) {
         if (key === 'interests' && Array.isArray(value)) {
           return `Interesses: ${value.join(', ')}`;
         }
+        if (key === 'purpose') {
+          return `Propósito no relacionamento: ${value}`;
+        }
         return `${key}: ${value}`
       })
       .join(', ');
