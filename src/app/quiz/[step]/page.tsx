@@ -6,6 +6,7 @@ import Step4 from '@/components/quiz/steps/step4';
 import Step5 from '@/components/quiz/steps/step5';
 import Step6 from '@/components/quiz/steps/step6';
 import Step7 from '@/components/quiz/steps/step7';
+import Step8 from '@/components/quiz/steps/step8';
 
 type QuizPageProps = {
   params: {
@@ -32,6 +33,8 @@ export default function QuizPage({ params }: QuizPageProps) {
         return <Step6 />;
       case 7:
         return <Step7 />;
+      case 8:
+        return <Step8 />;
       default:
         // For any invalid step, redirect to the beginning.
         redirect('/quiz/1');

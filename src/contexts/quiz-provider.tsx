@@ -13,6 +13,7 @@ export interface QuizAnswers {
   purpose?: string;
   values?: string;
   timing?: string;
+  location?: string;
 }
 
 // Define the context shape

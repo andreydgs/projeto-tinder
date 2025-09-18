@@ -1,76 +1,68 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import { useQuiz } from '@/contexts/quiz-provider';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { CheckCircle, Edit } from 'lucide-react';
-import Link from 'next/link';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { useToast } from '@/hooks/use-toast';
+import { useState } from 'react';
+
+const locationOptions = [
+    'Sim, seria perfeito conhecer alguém por aqui',
+    'Estou disposto(a) a expandir meu círculo social',
+    'Gostaria de participar de grupos cristãos locais',
+    'Acredito que Deus pode usar qualquer meio',
+];
 
 export default function Step7() {
-  const { answers } = useQuiz();
+  const router = useRouter();
+  const { toast } = useToast();
+  const { answers, setAnswer } = useQuiz();
+  const [selectedLocation, setSelectedLocation] = useState<string | undefined>(answers.location);
+
+  const handleSelect = (option: string) => {
+    setSelectedLocation(option);
+  };
+
+  const handleSubmit = () => {
+    if (selectedLocation) {
+      setAnswer('location', selectedLocation);
+      router.push('/quiz/8');
+    } else {
+      toast({
+        title: "Seleção necessária",
+        description: "Por favor, escolha uma opção para continuar.",
+        variant: "destructive"
+      })
+    }
+  };
 
   return (
-    <div className="text-center p-4 flex flex-col items-center">
-        <CheckCircle className="h-16 w-16 text-green-500 mb-4" />
-        <h1 className="text-3xl md:text-4xl font-bold font-headline mb-4 text-foreground">
-            Tudo pronto!
-        </h1>
-        <p className="text-lg text-muted-foreground mb-8">
-            Seu perfil está completo. Confira suas respostas abaixo.
-        </p>
+    <Card className="border-none shadow-none">
+      <CardHeader className="text-center">
+        <CardTitle className="text-2xl font-bold">Está aberto a se conectar com alguém da sua região?</CardTitle>
+        <CardDescription>(COLOCAR A LOCALIZAÇÃO DO USUÁRIO POR IP)</CardDescription>
+      </CardHeader>
+      <CardContent>
+          <div className="grid grid-cols-1 gap-4 mb-8">
+            {locationOptions.map((option) => (
+              <Button
+                key={option}
+                variant={selectedLocation === option ? 'default' : 'outline'}
+                className="text-md h-auto min-h-16 w-full whitespace-normal p-4 justify-center text-center"
+                onClick={() => handleSelect(option)}
+              >
+                {option}
+              </Button>
+            ))}
+          </div>
 
-        <Card className="text-left mb-8 w-full max-w-md mx-auto shadow-lg">
-            <CardHeader className="flex flex-row items-center justify-between">
-                <div>
-                    <CardTitle>Resumo do seu Perfil</CardTitle>
-                    <CardDescription>Este é o perfil que usaremos para encontrar seu par divino.</CardDescription>
-                </div>
-                <Button variant="ghost" size="icon" asChild>
-                    <Link href="/quiz/2" aria-label="Editar perfil">
-                        <Edit className="h-4 w-4" />
-                    </Link>
-                </Button>
-            </CardHeader>
-            <CardContent className="space-y-4 text-sm">
-                <div className="flex justify-between items-center border-b pb-2">
-                    <span className="font-semibold text-muted-foreground">Nome:</span>
-                    <span className="font-medium">{answers.name || 'Não informado'}</span>
-                </div>
-                <div className="flex justify-between items-center border-b pb-2">
-                    <span className="font-semibold text-muted-foreground">Idade:</span>
-                    <span className="font-medium">{answers.age || 'Não informado'}</span>
-                </div>
-                <div className="flex justify-between items-center border-b pb-2">
-                    <span className="font-semibold text-muted-foreground">Gênero:</span>
-                    <span className="font-medium">{answers.gender || 'Não informado'}</span>
-                </div>
-                 <div className="flex justify-between items-center border-b pb-2">
-                    <span className="font-semibold text-muted-foreground">Interesses:</span>
-                    <span className="font-medium text-right">{(answers.interests || []).join(', ')}</span>
-                </div>
-                <div className="flex justify-between items-center border-b pb-2">
-                    <span className="font-semibold text-muted-foreground">Prioridade:</span>
-                    <span className="font-medium text-right">{answers.preference || 'Não informado'}</span>
-                </div>
-                 <div className="flex justify-between items-center border-b pb-2">
-                    <span className="font-semibold text-muted-foreground">Propósito:</span>
-                    <span className="font-medium text-right">{answers.purpose || 'Não informado'}</span>
-                </div>
-                <div className="flex justify-between items-center border-b pb-2">
-                    <span className="font-semibold text-muted-foreground">Valores:</span>
-                    <span className="font-medium text-right">{answers.values || 'Não informado'}</span>
-                </div>
-                <div className="flex justify-between items-center">
-                    <span className="font-semibold text-muted-foreground">Tempo de Deus:</span>
-                    <span className="font-medium text-right">{answers.timing || 'Não informado'}</span>
-                </div>
-            </CardContent>
-        </Card>
-        
-        <h2 className="text-2xl font-bold mt-12 mb-4">Descubra quem está próximo de você</h2>
-        <Button asChild size="lg" className="btn-gradient px-12 py-8 rounded-full shadow-lg text-lg">
-            <Link href="#">Encontrar meu par</Link>
-        </Button>
-    </div>
+        <div className="flex justify-center pt-4">
+          <Button onClick={handleSubmit} size="lg" className="btn-gradient px-12 py-8 rounded-full shadow-lg text-lg">
+            Analisar Perfil
+          </Button>
+        </div>
+      </CardContent>
+    </Card>
   );
 }
