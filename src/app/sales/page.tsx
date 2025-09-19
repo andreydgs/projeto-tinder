@@ -239,7 +239,7 @@ export default function SalesPage() {
                         <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4" /> Prioridade no suporte</li>
                         <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4" /> Ver quem curtiu você</li>
                     </ul>
-                     <Button asChild className="w-full bg-yellow-400 text-black hover:bg-yellow-400/90 font-bold"><Link href="#">Escolher Plano</Link></Button>
+                     <Button asChild className="w-full bg-white text-pink-500 hover:bg-white/90 font-bold"><Link href="#">Escolher Plano</Link></Button>
                     </CardContent>
                 </Card>
 
@@ -357,3 +357,5 @@ export default function SalesPage() {
     </div>
   );
 }
+
+    
