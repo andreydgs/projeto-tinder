@@ -7,8 +7,10 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { CheckCircle, Heart, Lock, MessageCircle, User, Users, ShieldCheck, BadgeCheck, Accessibility, AlarmClock, Hourglass, Crown, Star } from 'lucide-react';
+import { CheckCircle, Heart, Lock, MessageCircle, User, Users, ShieldCheck, BadgeCheck, Accessibility, Hourglass, Crown, Star } from 'lucide-react';
 import { Logo } from '@/components/logo';
+import { LiteVideoPlayer } from '@/components/lite-video-player';
+
 
 const CountdownTimer = () => {
   const [timeLeft, setTimeLeft] = useState({ minutes: 14, seconds: 44 });
@@ -85,13 +87,11 @@ export default function SalesPage() {
               🙏 Você está a um passo de viver o amor que Deus preparou para você.
             </p>
               <div className="w-full max-w-sm mx-auto my-4 rounded-xl overflow-hidden shadow-lg">
-                <video 
-                    src="https://app.litevideo.net/embed/9e71b1eb-1df5-40a3-848e-b56dc655bf67/video.mp4" 
-                    className="w-full h-full"
-                    autoPlay 
-                    loop 
-                    muted 
-                    playsInline
+                <LiteVideoPlayer
+                    videoId="9e71b1eb-1df5-40a3-848e-b56dc655bf67"
+                    aspectRatio="9:16"
+                    baseUrl="https://app.litevideo.net"
+                    params="aspectRatio=9%3A16&coverColor=%23e44960&progressSpeed=normal&progressBarHeight=7&showCover=true&coverStyle=gradient&playIconStyle=circle&playIconSize=huge&showTitle=true&showControls=false&showProgressBar=true&iconColor=%23ffffff&progressBarColor=%23ffffff&controlsStyle=default&controlsPosition=bottom&controlsColor=%23ffffff&controlsBackground=gradient&hoverEffect=fade&autoPlay=true&loop=true&liveSimulatorEnabled=false&liveSimulatorViewersMin=10&liveSimulatorViewersMax=50&liveSimulatorGrowthRate=moderate&domainLockEnabled=false&domainLockDomains=&showComments=false"
                 />
               </div>
           </section>
