@@ -108,10 +108,10 @@ export default function SalesPage() {
           {/* Header */}
           <section className="text-center mb-6">
             <h1 className="text-2xl md:text-3xl font-bold mb-2">
-              Entre Hoje e Garanta Seu Desconto Exclusivo!
+              Você está a um passo de viver o amor que Deus preparou para você.
             </h1>
             <p className="text-base md:text-lg text-muted-foreground">
-              🙏 Você está a um passo de viver o amor que Deus preparou para você.
+              Nossa comunidade exclusiva conecta milhares de solteiros cristãos em todo o Brasil que, assim como você, buscam um relacionamento sério baseado na fé e nos valores do Reino.
             </p>
               <div className="w-full max-w-sm mx-auto my-4 rounded-xl overflow-hidden shadow-lg">
                 <LiteVideoPlayer
