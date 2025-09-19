@@ -331,7 +331,7 @@ export default function SalesPage() {
                 <AccordionItem value="item-1">
                     <AccordionTrigger className="text-sm">COMO VOU RECEBER O ACESSO?</AccordionTrigger>
                     <AccordionContent className="text-sm">
-                    O acesso à comunidade será enviado para seu e-mail após a confirmação de pagamento. Verifique sua caixa de spam. Em caso de dificuldade, contate-nos em @namoradoscristao.
+                    O acesso à comunidade será enviado para seu e-mail após a confirmação de pagamento. Verifique sua caixa de spam. Em caso de dificuldade, contate-nos em @tindercristao.app
                     </AccordionContent>
                 </AccordionItem>
                 <AccordionItem value="item-2">
