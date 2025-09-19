@@ -122,7 +122,7 @@ export default function SalesPage() {
                         <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-green-500" /> Chat básico</li>
                         <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-green-500" /> Filtros simples</li>
                     </ul>
-                    <Button asChild className="w-full text-white text-base py-6 rounded-lg" style={{ backgroundColor: '#22C55E' }}><Link href="#">ACESSAR AGORA</Link></Button>
+                    <Button asChild className="w-full btn-gradient"><Link href="#">Escolher Plano</Link></Button>
                     </CardContent>
                 </Card>
 
@@ -145,7 +145,7 @@ export default function SalesPage() {
                         <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4" /> Prioridade no suporte</li>
                         <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4" /> Ver quem curtiu você</li>
                     </ul>
-                    <Button asChild className="w-full text-white text-base py-6 rounded-lg" style={{ backgroundColor: '#22C55E' }}><Link href="#">ACESSAR AGORA</Link></Button>
+                     <Button asChild className="w-full bg-white text-primary hover:bg-white/90"><Link href="#">Escolher Plano</Link></Button>
                     </CardContent>
                 </Card>
 
@@ -173,7 +173,7 @@ export default function SalesPage() {
                         <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-amber-600" /> Destaque no ranking</li>
                         <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-amber-600" /> Selo "Busca Relacionamento Sério"</li>
                     </ul>
-                    <Button asChild className="w-full text-white text-base py-6 rounded-lg" style={{ backgroundColor: '#22C55E' }}><Link href="#">ACESSAR AGORA</Link></Button>
+                    <Button asChild className="w-full btn-gradient"><Link href="#">Escolher Plano</Link></Button>
                     </CardContent>
                 </Card>
 
