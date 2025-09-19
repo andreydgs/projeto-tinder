@@ -321,7 +321,7 @@ export default function SalesPage() {
                 <Wifi className="h-4 w-4 animate-pulse" />
                 746 pessoas estão online agora.
             </p>
-            <p className="text-muted-foreground mb-6 max-w-2xl mx-auto text-sm">Milhares de pessoas como você já transformaram suas vidas. Não deixe a felicidade passar!</p>
+            <p className="text-muted-foreground mb-6 max-w-2xl mx-auto text-sm">Milhares de pessoas já encontraram seu par através do APP. Faça parte da nossa comunidade cristã exclusiva.</p>
             <Button asChild size="lg" className="text-white text-base py-6 rounded-lg" style={{ backgroundColor: '#22C55E' }}><Link href="#">ACESSAR AGORA</Link></Button>
           </section>
 
