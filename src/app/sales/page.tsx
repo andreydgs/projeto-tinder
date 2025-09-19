@@ -55,6 +55,13 @@ const testimonials = [
     location: "Brasília, DF",
     imageUrl: "https://i.imgur.com/t3CUM7I.jpeg",
   },
+    {
+    quote: "Casei há 6 meses com quem conheci aqui! Deus realmente tinha preparado alguém especial para mim 💒",
+    name: "Priscila Lima",
+    age: 26,
+    location: "Belo Horizonte, MG",
+    imageUrl: "https://i.pinimg.com/736x/4e/7b/75/4e7b7540dd1b95e727692dc32f59eeda.jpg",
+  },
 ]
 
 export default function SalesPage() {
