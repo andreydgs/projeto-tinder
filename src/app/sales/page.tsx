@@ -94,6 +94,9 @@ export default function SalesPage() {
                     params="aspectRatio=9%3A16&coverColor=%23e44960&progressSpeed=normal&progressBarHeight=7&showCover=true&coverStyle=gradient&playIconStyle=circle&playIconSize=huge&showTitle=true&showControls=false&showProgressBar=true&iconColor=%23ffffff&progressBarColor=%23ffffff&controlsStyle=default&controlsPosition=bottom&controlsColor=%23ffffff&controlsBackground=gradient&hoverEffect=fade&autoPlay=true&loop=true&liveSimulatorEnabled=false&liveSimulatorViewersMin=10&liveSimulatorViewersMax=50&liveSimulatorGrowthRate=moderate&domainLockEnabled=false&domainLockDomains=&showComments=false"
                 />
               </div>
+              <Button asChild size="lg" className="w-full max-w-sm mx-auto text-white text-base py-6 rounded-lg" style={{ backgroundColor: '#22C55E' }}>
+                <Link href="#">ACESSAR AGORA</Link>
+              </Button>
           </section>
 
           {/* Good News */}
@@ -119,7 +122,7 @@ export default function SalesPage() {
                         <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-green-500" /> Chat básico</li>
                         <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-green-500" /> Filtros simples</li>
                     </ul>
-                    <Button asChild className="w-full bg-gray-600 hover:bg-gray-700 text-white text-base py-6 rounded-lg"><Link href="#">Escolher Básico</Link></Button>
+                    <Button asChild className="w-full text-white text-base py-6 rounded-lg" style={{ backgroundColor: '#22C55E' }}><Link href="#">ACESSAR AGORA</Link></Button>
                     </CardContent>
                 </Card>
 
@@ -142,7 +145,7 @@ export default function SalesPage() {
                         <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4" /> Prioridade no suporte</li>
                         <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4" /> Ver quem curtiu você</li>
                     </ul>
-                    <Button asChild className="w-full bg-white text-primary hover:bg-gray-100 text-base py-6 rounded-lg"><Link href="#">Escolher Premium</Link></Button>
+                    <Button asChild className="w-full text-white text-base py-6 rounded-lg" style={{ backgroundColor: '#22C55E' }}><Link href="#">ACESSAR AGORA</Link></Button>
                     </CardContent>
                 </Card>
 
@@ -170,7 +173,7 @@ export default function SalesPage() {
                         <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-amber-600" /> Destaque no ranking</li>
                         <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-amber-600" /> Selo "Busca Relacionamento Sério"</li>
                     </ul>
-                    <Button asChild className="w-full bg-amber-500 hover:bg-amber-600 text-white text-base py-6 rounded-lg"><Link href="#">Escolher Aliança</Link></Button>
+                    <Button asChild className="w-full text-white text-base py-6 rounded-lg" style={{ backgroundColor: '#22C55E' }}><Link href="#">ACESSAR AGORA</Link></Button>
                     </CardContent>
                 </Card>
 
@@ -273,7 +276,7 @@ export default function SalesPage() {
             <h2 className="text-xl font-bold mb-2">💖 Sua nova história pode começar agora</h2>
             <p className="bg-green-100 text-green-800 rounded-full px-3 py-1 mb-4 inline-block text-sm">✅ 65 pessoas online agora</p>
             <p className="text-muted-foreground mb-6 max-w-2xl mx-auto text-sm">Milhares de pessoas como você já transformaram suas vidas. Não deixe a felicidade passar!</p>
-            <Button asChild size="lg" className="btn-gradient text-base px-10 py-6 rounded-xl shadow-lg"><Link href="#">Entrar Agora</Link></Button>
+            <Button asChild size="lg" className="text-white text-base py-6 rounded-lg" style={{ backgroundColor: '#22C55E' }}><Link href="#">ACESSAR AGORA</Link></Button>
           </section>
 
           {/* FAQ */}
