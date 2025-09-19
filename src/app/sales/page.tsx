@@ -77,7 +77,7 @@ export default function SalesPage() {
                 const response = await fetch('https://ipapi.co/json/');
                 if (!response.ok) throw new Error('Failed to fetch location');
                 const data = await response.json();
-                setUserLocation(data.city);
+                setUserLocation(`${data.city}, ${data.region_code}`);
             } catch (error) {
                 console.error("Error fetching user's location:", error);
             }
@@ -111,7 +111,7 @@ export default function SalesPage() {
               Você está a um passo de viver o amor que Deus preparou para você.
             </h1>
             <p className="text-base md:text-lg text-muted-foreground">
-              Nossa comunidade exclusiva conecta milhares de solteiros cristãos em todo o Brasil que, assim como você, buscam um relacionamento sério baseado na fé e nos valores do Reino.
+              Conectamos solteiros cristãos que buscam um relacionamento sério e baseado na fé.
             </p>
               <div className="w-full max-w-sm mx-auto my-4 rounded-xl overflow-hidden shadow-lg">
                 <LiteVideoPlayer
