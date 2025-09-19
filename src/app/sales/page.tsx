@@ -104,6 +104,52 @@ export default function SalesPage() {
             💡 Boa notícia: 37 pessoas com seus valores estão online em {userLocation}.
           </div>
 
+          {/* Our Commitment & Testimonial */}
+           <section className="grid md:grid-cols-2 gap-6 items-center mb-8">
+              <div>
+                <h2 className="text-xl md:text-3xl font-bold mb-3">Nosso Compromisso</h2>
+                <p className="text-muted-foreground mb-4 text-sm">Criar um ambiente cristão seguro onde conexões são construídas com autenticidade, fé e propósito.</p>
+                <ul className="space-y-2 text-sm">
+                    <li className="flex items-center gap-3"><CheckCircle className="h-4 w-4 text-primary" /> Relacionamentos com intenção</li>
+                    <li className="flex items-center gap-3"><CheckCircle className="h-4 w-4 text-primary" /> Trocas significativas com pessoas de fé</li>
+                    <li className="flex items-center gap-3"><CheckCircle className="h-4 w-4 text-primary" /> Crescimento espiritual e emocional</li>
+                </ul>
+              </div>
+              <div className="bg-secondary p-4 rounded-lg">
+                <MessageCircle className="h-6 w-6 text-secondary-foreground mb-2" />
+                <p className="text-base italic mb-3">"Encontrei meu noivo aqui! Finalmente achei alguém que compartilha minha fé ❤️"</p>
+                <div className="flex items-center gap-3">
+                  <Image src="https://i.imgur.com/3qV0WxN.jpeg" alt="Foto de Ana Carolina" width={40} height={40} className="rounded-full" />
+                  <div>
+                    <p className="font-bold text-sm">Ana Carolina, 28 anos</p>
+                    <p className="text-xs text-muted-foreground">São Paulo, SP</p>
+                  </div>
+                </div>
+              </div>
+          </section>
+          
+          <div className="flex justify-around text-center mb-8">
+            <div>
+              <p className="text-2xl font-bold text-primary">+12.8K</p>
+              <p className="text-muted-foreground text-xs">membros ativos</p>
+            </div>
+            <div>
+              <p className="text-2xl font-bold text-primary">2.3K</p>
+              <p className="text-muted-foreground text-xs">relacionamentos</p>
+            </div>
+          </div>
+          
+           {/* Who is this for Section */}
+          <section className="bg-secondary rounded-lg p-6 mb-8">
+            <h2 className="text-lg font-bold text-center mb-4">💝 Essa comunidade é para você se...</h2>
+            <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-3 text-sm">
+              <li className="flex items-start gap-2"><Heart className="h-4 w-4 text-primary mt-0.5 shrink-0" /> Busca um relacionamento com propósito</li>
+              <li className="flex items-start gap-2"><Heart className="h-4 w-4 text-primary mt-0.5 shrink-0" /> Cansado(a) de apps rasos</li>
+              <li className="flex items-start gap-2"><Heart className="h-4 w-4 text-primary mt-0.5 shrink-0" /> Quer alguém com mesmos valores</li>
+              <li className="flex items-start gap-2"><Heart className="h-4 w-4 text-primary mt-0.5 shrink-0" /> Acredita no tempo de Deus</li>
+            </ul>
+          </section>
+
            {/* Pricing Section */}
           <section className="mb-8">
              <h2 className="text-xl md:text-3xl font-bold text-center mb-4">Escolha seu Plano</h2>
@@ -223,52 +269,6 @@ export default function SalesPage() {
                 <div className="flex items-center gap-2 bg-muted p-2 rounded-lg"><Heart className="h-5 w-5 text-green-500 fill-green-500" /> Disponível para privado</div>
                 <div className="flex items-center gap-2 bg-muted p-2 rounded-lg"><Lock className="h-4 w-4 text-gray-500" /> Apenas observando</div>
              </div>
-          </section>
-
-          {/* Our Commitment & Testimonial */}
-           <section className="grid md:grid-cols-2 gap-6 items-center mb-8">
-              <div>
-                <h2 className="text-xl md:text-3xl font-bold mb-3">Nosso Compromisso</h2>
-                <p className="text-muted-foreground mb-4 text-sm">Criar um ambiente cristão seguro onde conexões são construídas com autenticidade, fé e propósito.</p>
-                <ul className="space-y-2 text-sm">
-                    <li className="flex items-center gap-3"><CheckCircle className="h-4 w-4 text-primary" /> Relacionamentos com intenção</li>
-                    <li className="flex items-center gap-3"><CheckCircle className="h-4 w-4 text-primary" /> Trocas significativas com pessoas de fé</li>
-                    <li className="flex items-center gap-3"><CheckCircle className="h-4 w-4 text-primary" /> Crescimento espiritual e emocional</li>
-                </ul>
-              </div>
-              <div className="bg-secondary p-4 rounded-lg">
-                <MessageCircle className="h-6 w-6 text-secondary-foreground mb-2" />
-                <p className="text-base italic mb-3">"Encontrei meu noivo aqui! Finalmente achei alguém que compartilha minha fé ❤️"</p>
-                <div className="flex items-center gap-3">
-                  <Image src="https://i.imgur.com/3qV0WxN.jpeg" alt="Foto de Ana Carolina" width={40} height={40} className="rounded-full" />
-                  <div>
-                    <p className="font-bold text-sm">Ana Carolina, 28 anos</p>
-                    <p className="text-xs text-muted-foreground">São Paulo, SP</p>
-                  </div>
-                </div>
-              </div>
-          </section>
-          
-          <div className="flex justify-around text-center mb-8">
-            <div>
-              <p className="text-2xl font-bold text-primary">+12.8K</p>
-              <p className="text-muted-foreground text-xs">membros ativos</p>
-            </div>
-            <div>
-              <p className="text-2xl font-bold text-primary">2.3K</p>
-              <p className="text-muted-foreground text-xs">relacionamentos</p>
-            </div>
-          </div>
-          
-           {/* Who is this for Section */}
-          <section className="bg-secondary rounded-lg p-6 mb-8">
-            <h2 className="text-lg font-bold text-center mb-4">💝 Essa comunidade é para você se...</h2>
-            <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-3 text-sm">
-              <li className="flex items-start gap-2"><Heart className="h-4 w-4 text-primary mt-0.5 shrink-0" /> Busca um relacionamento com propósito</li>
-              <li className="flex items-start gap-2"><Heart className="h-4 w-4 text-primary mt-0.5 shrink-0" /> Cansado(a) de apps rasos</li>
-              <li className="flex items-start gap-2"><Heart className="h-4 w-4 text-primary mt-0.5 shrink-0" /> Quer alguém com mesmos valores</li>
-              <li className="flex items-start gap-2"><Heart className="h-4 w-4 text-primary mt-0.5 shrink-0" /> Acredita no tempo de Deus</li>
-            </ul>
           </section>
 
           {/* Final CTA */}
