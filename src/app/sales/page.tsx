@@ -135,8 +135,8 @@ export default function SalesPage() {
           </div>
 
           {/* Our Commitment & Testimonial */}
-           <section className="mb-8">
-              <div className="mb-6">
+           <section className="mb-8 space-y-8">
+              <div>
                 <h2 className="text-xl md:text-3xl font-bold mb-3">Nosso Compromisso</h2>
                 <p className="text-muted-foreground mb-4 text-sm">Criar um ambiente cristão seguro onde conexões são construídas com autenticidade, fé e propósito.</p>
                 <ul className="space-y-2 text-sm">
@@ -284,26 +284,35 @@ export default function SalesPage() {
               Um espaço acolhedor, organizado e seguro para conexões com base na fé.
             </p>
             <div className="grid md:grid-cols-3 gap-4">
-              <Card className="text-center">
-                <CardHeader className="p-4">
-                  <Heart className="mx-auto h-8 w-8 text-red-400" />
-                  <CardTitle className="text-base">Chat Jovens</CardTitle>
-                  <CardDescription className="text-xs">(19 a 39 anos)</CardDescription>
-                </CardHeader>
+              <Card className="text-left bg-card p-4">
+                  <CardTitle className="text-base flex items-center gap-2">
+                    <Heart className="h-5 w-5 text-red-400 fill-red-400" />
+                    Chat Jovens
+                  </CardTitle>
+                  <CardDescription className="text-xs pl-7 mb-2">(19 a 39 anos)</CardDescription>
+                <CardContent className="p-0 pl-7 text-xs text-muted-foreground">
+                  Conexões leves, trocas sinceras e relacionamentos com propósito.
+                </CardContent>
               </Card>
-              <Card className="text-center">
-                <CardHeader className="p-4">
-                  <Users className="mx-auto h-8 w-8 text-blue-400" />
-                  <CardTitle className="text-base">Chat Adultos</CardTitle>
-                  <CardDescription className="text-xs">(40 a 59 anos)</CardDescription>
-                </CardHeader>
+              <Card className="text-left bg-card p-4">
+                  <CardTitle className="text-base flex items-center gap-2">
+                    <Heart className="h-5 w-5 text-blue-400 fill-blue-400" />
+                    Chat Adultos
+                  </CardTitle>
+                  <CardDescription className="text-xs pl-7 mb-2">(40 a 59 anos)</CardDescription>
+                <CardContent className="p-0 pl-7 text-xs text-muted-foreground">
+                  Conversas conscientes, experiências de vida e relacionamentos edificantes.
+                </CardContent>
               </Card>
-              <Card className="text-center">
-                <CardHeader className="p-4">
-                  <Accessibility className="mx-auto h-8 w-8 text-green-400" />
-                  <CardTitle className="text-base">Chat Sêniores</CardTitle>
-                  <CardDescription className="text-xs">(60+)</CardDescription>
-                </CardHeader>
+              <Card className="text-left bg-card p-4">
+                  <CardTitle className="text-base flex items-center gap-2">
+                    <Heart className="h-5 w-5 text-green-400 fill-green-400" />
+                    Chat Sêniores
+                  </CardTitle>
+                  <CardDescription className="text-xs pl-7 mb-2">(60+)</CardDescription>
+                <CardContent className="p-0 pl-7 text-xs text-muted-foreground">
+                  Sabedoria, fé e novas possibilidades para viver o amor com maturidade.
+                </CardContent>
               </Card>
             </div>
           </section>
