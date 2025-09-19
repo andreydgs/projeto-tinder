@@ -135,7 +135,7 @@ export default function SalesPage() {
           </div>
 
           {/* Our Commitment & Testimonial */}
-           <section className="grid md:grid-cols-2 gap-6 items-center mb-8">
+           <section className="grid md:grid-cols-2 gap-6 items-center mb-8 overflow-hidden">
               <div>
                 <h2 className="text-xl md:text-3xl font-bold mb-3">Nosso Compromisso</h2>
                 <p className="text-muted-foreground mb-4 text-sm">Criar um ambiente cristão seguro onde conexões são construídas com autenticidade, fé e propósito.</p>
