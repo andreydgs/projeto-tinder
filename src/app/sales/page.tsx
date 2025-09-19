@@ -201,7 +201,7 @@ export default function SalesPage() {
            {/* Pricing Section */}
           <section id="planos" className="mb-8">
              <h2 className="text-xl md:text-3xl font-bold text-center mb-4">Escolha seu Plano</h2>
-            <div className="grid md:grid-cols-3 gap-6 items-center">
+            <div className="grid md:grid-cols-3 gap-6 items-center space-y-6 md:space-y-0">
 
               {/* Basic Plan */}
                 <Card className="rounded-2xl">
