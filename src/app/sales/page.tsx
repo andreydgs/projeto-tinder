@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { CheckCircle, Heart, Lock, MessageCircle, User, Users, ShieldCheck, BadgeCheck, Accessibility, Hourglass, Crown, Star } from 'lucide-react';
+import { CheckCircle, Heart, Lock, MessageCircle, User, Users, ShieldCheck, BadgeCheck, Accessibility, Hourglass, Crown, Star, Wifi } from 'lucide-react';
 import { Logo } from '@/components/logo';
 import { LiteVideoPlayer } from '@/components/lite-video-player';
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel"
@@ -97,11 +97,8 @@ export default function SalesPage() {
 
         <section className="bg-destructive text-destructive-foreground text-center py-2">
           <div className="container mx-auto px-4">
-              <div className="flex items-center justify-center gap-2 text-sm font-bold">
-                  <p>OFERTA EXCLUSIVA</p>
-              </div>
-              <p className="text-xs font-medium flex items-center justify-center gap-1">
-                  <Hourglass className="h-4 w-4"/> Tempo restante: <CountdownTimer />
+              <p className="text-sm font-medium flex items-center justify-center gap-1">
+                  <Hourglass className="h-4 w-4"/> OFERTA EXCLUSIVA | Tempo restante: <CountdownTimer />
               </p>
           </div>
         </section>
@@ -319,8 +316,11 @@ export default function SalesPage() {
 
           {/* Final CTA */}
           <section className="text-center mb-8">
-            <h2 className="text-xl font-bold mb-2">💖 Sua nova história pode começar agora</h2>
-            <p className="bg-green-100 text-green-800 rounded-full px-3 py-1 mb-4 inline-block text-sm">✅ 65 pessoas online agora</p>
+            <h2 className="text-xl font-bold mb-2">Sua nova história pode começar agora, essa chance pode não aparecer novamente</h2>
+             <p className="bg-green-100 text-green-800 rounded-full px-3 py-1 mb-4 inline-flex items-center gap-2 text-sm">
+                <Wifi className="h-4 w-4 animate-pulse" />
+                746 pessoas estão online agora.
+            </p>
             <p className="text-muted-foreground mb-6 max-w-2xl mx-auto text-sm">Milhares de pessoas como você já transformaram suas vidas. Não deixe a felicidade passar!</p>
             <Button asChild size="lg" className="text-white text-base py-6 rounded-lg" style={{ backgroundColor: '#22C55E' }}><Link href="#">ACESSAR AGORA</Link></Button>
           </section>
