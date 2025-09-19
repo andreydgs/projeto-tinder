@@ -135,8 +135,8 @@ export default function SalesPage() {
           </div>
 
           {/* Our Commitment & Testimonial */}
-           <section className="grid md:grid-cols-2 gap-6 items-center mb-8 overflow-hidden">
-              <div>
+           <section className="mb-8">
+              <div className="mb-6">
                 <h2 className="text-xl md:text-3xl font-bold mb-3">Nosso Compromisso</h2>
                 <p className="text-muted-foreground mb-4 text-sm">Criar um ambiente cristão seguro onde conexões são construídas com autenticidade, fé e propósito.</p>
                 <ul className="space-y-2 text-sm">
@@ -147,7 +147,7 @@ export default function SalesPage() {
               </div>
               <Carousel
                 plugins={[autoplayPlugin.current]}
-                className="w-full"
+                className="w-full max-w-md mx-auto"
                 onMouseEnter={autoplayPlugin.current.stop}
                 onMouseLeave={autoplayPlugin.current.reset}
                 opts={{ loop: true }}
