@@ -155,11 +155,18 @@ export default function SalesPage() {
                 <CarouselContent>
                   {testimonials.map((testimonial, index) => (
                     <CarouselItem key={index}>
-                      <div className="bg-secondary p-4 rounded-lg">
+                      <div className="bg-secondary p-4 rounded-lg flex flex-col h-full">
                         <MessageCircle className="h-6 w-6 text-secondary-foreground mb-2" />
-                        <p className="text-base italic mb-3">"{testimonial.quote}"</p>
+                        <p className="text-base italic mb-3 flex-grow">"{testimonial.quote}"</p>
                         <div className="flex items-center gap-3">
-                          <Image src={testimonial.imageUrl} alt={`Foto de ${testimonial.name}`} width={40} height={40} className="rounded-full" />
+                           <div className="relative w-10 h-10">
+                              <Image 
+                                src={testimonial.imageUrl} 
+                                alt={`Foto de ${testimonial.name}`} 
+                                fill
+                                className="rounded-full object-cover"
+                              />
+                           </div>
                           <div>
                             <p className="font-bold text-sm">{testimonial.name}, {testimonial.age} anos</p>
                             <p className="text-xs text-muted-foreground">{testimonial.location}</p>
