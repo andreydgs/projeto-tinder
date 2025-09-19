@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -10,6 +10,8 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { CheckCircle, Heart, Lock, MessageCircle, User, Users, ShieldCheck, BadgeCheck, Accessibility, Hourglass, Crown, Star } from 'lucide-react';
 import { Logo } from '@/components/logo';
 import { LiteVideoPlayer } from '@/components/lite-video-player';
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel"
+import Autoplay from "embla-carousel-autoplay"
 
 
 const CountdownTimer = () => {
@@ -38,8 +40,29 @@ const CountdownTimer = () => {
   );
 };
 
+const testimonials = [
+  {
+    quote: "Encontrei meu noivo aqui! Finalmente achei alguém que compartilha minha fé ❤️",
+    name: "Ana Carolina",
+    age: 28,
+    location: "São Paulo, SP",
+    imageUrl: "https://i.imgur.com/3qV0WxN.jpeg",
+  },
+  {
+    quote: "Diferente de outros apps, aqui encontrei pessoas sérias que querem algo real. Vale cada centavo! ⭐",
+    name: "João Pedro",
+    age: 29,
+    location: "Brasília, DF",
+    imageUrl: "https://i.imgur.com/t3CUM7I.jpeg",
+  },
+]
+
 export default function SalesPage() {
     const [userLocation, setUserLocation] = useState<string>('sua cidade');
+
+    const autoplayPlugin = useRef(
+      Autoplay({ delay: 4000, stopOnInteraction: true })
+    );
 
     useEffect(() => {
         async function fetchLocation() {
@@ -115,17 +138,31 @@ export default function SalesPage() {
                     <li className="flex items-center gap-3"><CheckCircle className="h-4 w-4 text-primary" /> Crescimento espiritual e emocional</li>
                 </ul>
               </div>
-              <div className="bg-secondary p-4 rounded-lg">
-                <MessageCircle className="h-6 w-6 text-secondary-foreground mb-2" />
-                <p className="text-base italic mb-3">"Encontrei meu noivo aqui! Finalmente achei alguém que compartilha minha fé ❤️"</p>
-                <div className="flex items-center gap-3">
-                  <Image src="https://i.imgur.com/3qV0WxN.jpeg" alt="Foto de Ana Carolina" width={40} height={40} className="rounded-full" />
-                  <div>
-                    <p className="font-bold text-sm">Ana Carolina, 28 anos</p>
-                    <p className="text-xs text-muted-foreground">São Paulo, SP</p>
-                  </div>
-                </div>
-              </div>
+              <Carousel
+                plugins={[autoplayPlugin.current]}
+                className="w-full"
+                onMouseEnter={autoplayPlugin.current.stop}
+                onMouseLeave={autoplayPlugin.current.reset}
+                opts={{ loop: true }}
+              >
+                <CarouselContent>
+                  {testimonials.map((testimonial, index) => (
+                    <CarouselItem key={index}>
+                      <div className="bg-secondary p-4 rounded-lg">
+                        <MessageCircle className="h-6 w-6 text-secondary-foreground mb-2" />
+                        <p className="text-base italic mb-3">"{testimonial.quote}"</p>
+                        <div className="flex items-center gap-3">
+                          <Image src={testimonial.imageUrl} alt={`Foto de ${testimonial.name}`} width={40} height={40} className="rounded-full" />
+                          <div>
+                            <p className="font-bold text-sm">{testimonial.name}, {testimonial.age} anos</p>
+                            <p className="text-xs text-muted-foreground">{testimonial.location}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+              </Carousel>
           </section>
           
           <div className="flex justify-around text-center mb-8">
@@ -291,7 +328,7 @@ export default function SalesPage() {
                 <AccordionItem value="item-2">
                     <AccordionTrigger className="text-sm">A COMUNIDADE É SEGURA?</AccordionTrigger>
                     <AccordionContent className="text-sm">
-                    Sim! A segurança é nossa prioridade. Monitoramos as interações para garantir um espaço respeitoso e cristão, com uma equipe dedicada para orientar e cuidar do bem-estar de todos.
+                    Sim! A segurança é nossa prioridade. Monitoramos as interações para garantir um espaço respeitososo e cristão, com uma equipe dedicada para orientar e cuidar do bem-estar de todos.
                     </AccordionContent>
                 </AccordionItem>
             </Accordion>
