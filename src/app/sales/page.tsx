@@ -122,7 +122,7 @@ export default function SalesPage() {
                 />
               </div>
               <Button asChild size="lg" className="w-full max-w-sm mx-auto text-white text-base py-6 rounded-lg" style={{ backgroundColor: '#22C55E' }}>
-                <Link href="#">ACESSAR AGORA</Link>
+                <Link href="#planos">ACESSAR AGORA</Link>
               </Button>
           </section>
 
@@ -199,7 +199,7 @@ export default function SalesPage() {
           </section>
 
            {/* Pricing Section */}
-          <section className="mb-8">
+          <section id="planos" className="mb-8">
              <h2 className="text-xl md:text-3xl font-bold text-center mb-4">Escolha seu Plano</h2>
             <div className="grid md:grid-cols-3 gap-6 items-center">
 
@@ -322,7 +322,7 @@ export default function SalesPage() {
                 746 pessoas estão online agora.
             </p>
             <p className="text-muted-foreground mb-6 max-w-2xl mx-auto text-sm">Milhares de pessoas já encontraram seu par através do APP. Faça parte da nossa comunidade cristã exclusiva.</p>
-            <Button asChild size="lg" className="text-white text-base py-6 rounded-lg" style={{ backgroundColor: '#22C55E' }}><Link href="#">ACESSAR AGORA</Link></Button>
+            <Button asChild size="lg" className="text-white text-base py-6 rounded-lg" style={{ backgroundColor: '#22C55E' }}><Link href="#planos">ACESSAR AGORA</Link></Button>
           </section>
 
           {/* FAQ */}
