@@ -317,20 +317,6 @@ export default function SalesPage() {
             </div>
           </section>
 
-          {/* Intentional Interactions */}
-          <section className="mb-8">
-             <div className="text-center mb-4">
-                <h2 className="text-xl md:text-3xl font-bold mb-2">💖 Interações com Intenção</h2>
-                <p className="text-muted-foreground text-sm">Sinalize sua intenção com um coração para manter as conexões respeitosas.</p>
-             </div>
-             <div className="grid sm:grid-cols-2 gap-3 text-xs">
-                <div className="flex items-center gap-2 bg-muted p-2 rounded-lg"><Heart className="h-5 w-5 text-red-500 fill-red-500" /> Aberto(a) a um relacionamento sério</div>
-                <div className="flex items-center gap-2 bg-muted p-2 rounded-lg"><Heart className="h-5 w-5 text-blue-500 fill-blue-500" /> Conversa com propósito</div>
-                <div className="flex items-center gap-2 bg-muted p-2 rounded-lg"><Heart className="h-5 w-5 text-green-500 fill-green-500" /> Disponível para privado</div>
-                <div className="flex items-center gap-2 bg-muted p-2 rounded-lg"><Lock className="h-4 w-4 text-gray-500" /> Apenas observando</div>
-             </div>
-          </section>
-
           {/* Final CTA */}
           <section className="text-center mb-8">
             <h2 className="text-xl font-bold mb-2">💖 Sua nova história pode começar agora</h2>
