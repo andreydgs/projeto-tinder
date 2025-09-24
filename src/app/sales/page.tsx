@@ -201,7 +201,7 @@ export default function SalesPage() {
            {/* Pricing Section */}
           <section id="planos" className="mb-8">
              <h2 className="text-xl md:text-3xl font-bold text-center mb-4">Escolha seu Plano</h2>
-            <div className="grid md:grid-cols-3 gap-6 items-center space-y-6 md:space-y-0">
+            <div className="grid md:grid-cols-3 gap-6 items-center space-y-8 md:space-y-0">
 
               {/* Basic Plan */}
                 <Card className="rounded-2xl">
@@ -216,7 +216,7 @@ export default function SalesPage() {
                         <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-green-500" /> Chat básico</li>
                         <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-green-500" /> Filtros simples</li>
                     </ul>
-                    <Button asChild className="w-full btn-gradient"><Link href="#">Escolher Plano</Link></Button>
+                    <Button asChild className="w-full text-white" style={{ backgroundColor: '#22C55E' }}><Link href="#">Escolher Plano</Link></Button>
                     </CardContent>
                 </Card>
 
@@ -239,7 +239,7 @@ export default function SalesPage() {
                         <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4" /> Prioridade no suporte</li>
                         <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4" /> Ver quem curtiu você</li>
                     </ul>
-                     <Button asChild className="w-full bg-white text-pink-500 hover:bg-white/90 font-bold"><Link href="#">Escolher Plano</Link></Button>
+                     <Button asChild className="w-full text-white" style={{ backgroundColor: '#22C55E' }}><Link href="#">Escolher Plano</Link></Button>
                     </CardContent>
                 </Card>
 
@@ -267,7 +267,7 @@ export default function SalesPage() {
                         <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-amber-600" /> Destaque no ranking</li>
                         <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-amber-600" /> Selo "Busca Relacionamento Sério"</li>
                     </ul>
-                    <Button asChild className="w-full btn-gradient"><Link href="#">Escolher Plano</Link></Button>
+                    <Button asChild className="w-full text-white" style={{ backgroundColor: '#22C55E' }}><Link href="#">Escolher Plano</Link></Button>
                     </CardContent>
                 </Card>
 
