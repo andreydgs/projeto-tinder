@@ -216,7 +216,7 @@ export default function SalesPage() {
                         <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-green-500" /> Chat básico</li>
                         <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-green-500" /> Filtros simples</li>
                     </ul>
-                    <Button asChild className="w-full text-white" style={{ backgroundColor: '#22C55E' }}><Link href="#">Escolher Plano</Link></Button>
+                    <Button asChild className="w-full text-white" style={{ backgroundColor: '#22C55E' }}><Link href="https://comprasprotegidas.com.br/HZOGIBpV">Escolher Plano</Link></Button>
                     </CardContent>
                 </Card>
 
@@ -239,7 +239,7 @@ export default function SalesPage() {
                         <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4" /> Prioridade no suporte</li>
                         <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4" /> Ver quem curtiu você</li>
                     </ul>
-                     <Button asChild className="w-full text-white" style={{ backgroundColor: '#22C55E' }}><Link href="#">Escolher Plano</Link></Button>
+                     <Button asChild className="w-full text-white" style={{ backgroundColor: '#22C55E' }}><Link href="https://comprasprotegidas.com.br/QpCyJYOE">Escolher Plano</Link></Button>
                     </CardContent>
                 </Card>
 
@@ -267,7 +267,7 @@ export default function SalesPage() {
                         <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-amber-600" /> Destaque no ranking</li>
                         <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-amber-600" /> Selo "Busca Relacionamento Sério"</li>
                     </ul>
-                    <Button asChild className="w-full text-white" style={{ backgroundColor: '#22C55E' }}><Link href="#">Escolher Plano</Link></Button>
+                    <Button asChild className="w-full text-white" style={{ backgroundColor: '#22C55E' }}><Link href="https://comprasprotegidas.com.br/ilicIxWj">Escolher Plano</Link></Button>
                     </CardContent>
                 </Card>
 
@@ -358,4 +358,5 @@ export default function SalesPage() {
   );
 }
 
+    
     
