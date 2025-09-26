@@ -122,7 +122,7 @@ export default function SalesPage() {
                 />
               </div>
               <Button asChild size="lg" className="w-full max-w-sm mx-auto text-white text-base py-6 rounded-lg" style={{ backgroundColor: '#22C55E' }}>
-                <Link href="#planos">ACESSAR AGORA</Link>
+                <a href="#planos">ACESSAR AGORA</a>
               </Button>
           </section>
 
@@ -216,7 +216,7 @@ export default function SalesPage() {
                         <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-green-500" /> Chat básico</li>
                         <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-green-500" /> Filtros simples</li>
                     </ul>
-                    <Button asChild className="w-full text-white" style={{ backgroundColor: '#22C55E' }}><Link href="https://comprasprotegidas.com.br/HZOGIBpV">Escolher Plano</Link></Button>
+                    <Button asChild className="w-full text-white" style={{ backgroundColor: '#22C55E' }}><a href="https://comprasprotegidas.com.br/HZOGIBpV" target="_blank" rel="noopener noreferrer">Escolher Plano</a></Button>
                     </CardContent>
                 </Card>
 
@@ -239,7 +239,7 @@ export default function SalesPage() {
                         <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4" /> Prioridade no suporte</li>
                         <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4" /> Ver quem curtiu você</li>
                     </ul>
-                     <Button asChild className="w-full text-white" style={{ backgroundColor: '#22C55E' }}><Link href="https://comprasprotegidas.com.br/QpCyJYOE">Escolher Plano</Link></Button>
+                     <Button asChild className="w-full text-white" style={{ backgroundColor: '#22C55E' }}><a href="https://comprasprotegidas.com.br/QpCyJYOE" target="_blank" rel="noopener noreferrer">Escolher Plano</a></Button>
                     </CardContent>
                 </Card>
 
@@ -267,7 +267,7 @@ export default function SalesPage() {
                         <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-amber-600" /> Destaque no ranking</li>
                         <li className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-amber-600" /> Selo "Busca Relacionamento Sério"</li>
                     </ul>
-                    <Button asChild className="w-full text-white" style={{ backgroundColor: '#22C55E' }}><Link href="https://comprasprotegidas.com.br/ilicIxWj">Escolher Plano</Link></Button>
+                    <Button asChild className="w-full text-white" style={{ backgroundColor: '#22C55E' }}><a href="https://comprasprotegidas.com.br/ilicIxWj" target="_blank" rel="noopener noreferrer">Escolher Plano</a></Button>
                     </CardContent>
                 </Card>
 
@@ -322,7 +322,7 @@ export default function SalesPage() {
                 746 pessoas estão online agora.
             </p>
             <p className="text-muted-foreground mb-6 max-w-2xl mx-auto text-sm">Milhares de pessoas já encontraram seu par através do APP. Faça parte da nossa comunidade cristã exclusiva.</p>
-            <Button asChild size="lg" className="text-white text-base py-6 rounded-lg" style={{ backgroundColor: '#22C55E' }}><Link href="#planos">ACESSAR AGORA</Link></Button>
+            <Button asChild size="lg" className="text-white text-base py-6 rounded-lg" style={{ backgroundColor: '#22C55E' }}><a href="#planos">ACESSAR AGORA</a></Button>
           </section>
 
           {/* FAQ */}
