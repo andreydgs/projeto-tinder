@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { useQuiz } from '@/contexts/quiz-provider';
 import { useEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
+import Script from 'next/script';
 
 export default function Step1() {
   const { clearAnswers } = useQuiz();
@@ -17,6 +18,10 @@ export default function Step1() {
   }, [clearAnswers]);
 
   return (
+    <>
+    <Script id="fb-track-view-content" strategy="afterInteractive">
+      {`fbq('track', 'ViewContent');`}
+    </Script>
     <div className="text-center p-4 flex flex-col items-center justify-center">
       <Image
         src="https://i.imgur.com/ImLy2t6.png"
@@ -36,5 +41,6 @@ export default function Step1() {
         <Link href="/quiz/2">Começar <ArrowRight className="w-5 h-5 ml-2" /></Link>
       </Button>
     </div>
+    </>
   );
 }
